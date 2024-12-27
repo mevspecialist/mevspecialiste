@@ -9,7 +9,6 @@ import {
     FaLinkedin,
     FaInstagram,
     FaPhone,
-    FaMapMarked,
     FaLocationArrow,
 } from 'react-icons/fa';
 
@@ -108,12 +107,16 @@ const Footer: React.FC = () => {
                         </div>
                     </form>
                     <div>
-                        <li className="flex gap-2 items-baseline mb-4">
-                            <FaPhone />
+                        <li className="flex gap-2 items-center mb-4">
+                            <span className="bg-[#A9518B] text-white p-2 rounded-full">
+                                <FaPhone />
+                            </span>
                             <span>+2348063583111</span>
                         </li>
-                        <li className="flex gap-2 items-baseline">
-                            <FaLocationArrow />
+                        <li className="flex gap-2 items-center">
+                            <span className="bg-[#A9518B] text-white p-2 rounded-full">
+                                <FaLocationArrow />
+                            </span>
                             <span>6 djibouti Street Wuse 2, FCT Abuja </span>
                         </li>
                     </div>
