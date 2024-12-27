@@ -53,9 +53,9 @@ const services = [
 
 const Footer: React.FC = () => {
     return (
-        <footer className="px-20 py-20 md:text-center md:px-16 bg-footer-bg text-pry-text-color-2">
-            <div className="flex justify-between gap-8">
-                <div className="w-1/3">
+        <footer className="px-10 py-20 md:text-center md:px-20 bg-footer-bg text-pry-text-color-2">
+            <div className="flex flex-col md:flex-row justify-between gap-8">
+                <div className="md:w-1/3">
                     <Link href="/">
                         <Image
                             src="/mev-logo-text.png"
@@ -87,11 +87,11 @@ const Footer: React.FC = () => {
                     <h3 className="mb-4">Services</h3>
                     <ul className="capitalize">
                         {services.map((service) => (
-                            <li key={service}>{service}</li>
+                            <li key={service} className='mb-2'>{service}</li>
                         ))}
                     </ul>
                 </div>
-                <div className="flex flex-col gap-4 text-left">
+                <div className="flex flex-col gap-6 text-left">
                     <form>
                         <h3 className="mb-4">Subscribe To Newsletter</h3>
                         <input
@@ -117,12 +117,12 @@ const Footer: React.FC = () => {
                             <span className="bg-[#A9518B] text-white p-2 rounded-full">
                                 <FaLocationArrow />
                             </span>
-                            <span>6 djibouti Street Wuse 2, FCT Abuja </span>
+                            <span>6 Djibouti Street Wuse 2, FCT Abuja </span>
                         </li>
                     </div>
                 </div>
             </div>
-            <div className="flex justify-between text-[#232323] pt-20">
+            <div className="flex flex-col md:flex-row justify-between text-[#232323] pt-20">
                 <p>Copyright &copy; 2024 MevSpecialist Hospital Abuja </p>
                 <p>
                     <span>Terms of Use</span>

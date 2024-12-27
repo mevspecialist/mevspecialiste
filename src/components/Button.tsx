@@ -7,9 +7,17 @@ interface ButtonProps {
     disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, label, disabled = false }) => {
+const Button: React.FC<ButtonProps> = ({
+    onClick,
+    label,
+    disabled = false,
+}) => {
     return (
-        <button onClick={onClick} disabled={disabled}>
+        <button
+            onClick={onClick}
+            disabled={disabled}
+            className="bg-btn-color text-white px-8 py-3 rounded-full font-light"
+        >
             {label}
         </button>
     );
