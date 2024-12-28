@@ -9,6 +9,10 @@ export default {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                marcellus: ['var(--font-marcellus)', 'sans-serif'],
+                manrope: ['var(--font-manrope)', 'sans-serif'],
+            },
             colors: {
                 background: 'var(--background)',
                 foreground: 'var(--foreground)',

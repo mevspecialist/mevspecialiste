@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
                             alt="Logo"
                         />
                     </Link>
-                    <p className="text-left my-6">
+                    <p className="text-left my-6 font-light">
                         Mev Specialist Hospital is renowned at home and abroad
                         for Medical excellence and attracts world-class
                         specialist Doctors and Surgeons.
@@ -85,9 +85,11 @@ const Footer: React.FC = () => {
 
                 <div className="text-left">
                     <h3 className="mb-4">Services</h3>
-                    <ul className="capitalize">
+                    <ul className="capitalize font-light">
                         {services.map((service) => (
-                            <li key={service} className='mb-2'>{service}</li>
+                            <li key={service} className="mb-2">
+                                {service}
+                            </li>
                         ))}
                     </ul>
                 </div>
@@ -106,7 +108,7 @@ const Footer: React.FC = () => {
                             />
                         </div>
                     </form>
-                    <div>
+                    <div className="font-light">
                         <li className="flex gap-2 items-center mb-4">
                             <span className="bg-[#A9518B] text-white p-2 rounded-full">
                                 <FaPhone />
