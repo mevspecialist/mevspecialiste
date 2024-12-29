@@ -19,8 +19,8 @@ const Nav: React.FC = () => {
 
     return (
         <header className="banner px-10 pt-10 text-sm md:text-base">
-            <div className="navigation py-4 px-10 md:py-6 md:px-20 relative z-10 flex justify-between items-center rounded-full">
-                <h1 className="nav-logo">
+            <div className="navigation py-4 px-10 md:py-6 md:px-20 relative z-20 flex justify-between items-center rounded-full">
+                <h1>
                     <Link href="/">
                         <Image
                             width={150}
@@ -30,8 +30,8 @@ const Nav: React.FC = () => {
                         />
                     </Link>
                 </h1>
-                <nav className="hidden lg:flex">
-                    <ul className="flex justify-evenly gap-8">
+                <nav className="hidden lg:flex items-center">
+                    <ul className="flex justify-evenly gap-8 font-marcellus border-r-2 pr-6">
                         {navigation.map((nav) => (
                             <li key={nav.name}>
                                 <Link href={nav.href} className="uppercase">
@@ -40,24 +40,28 @@ const Nav: React.FC = () => {
                             </li>
                         ))}
                     </ul>
-                    <div className="flex gap-4 ml-20">
-                        <FaPhoneAlt className="icon" />
-                        <FaEnvelope className="icon" />
+                    <div className="flex gap-4 ml-10">
+                        <span className="w-10 h-10 bg-btn-color rounded-full flex items-center justify-center">
+                            <FaPhoneAlt className="icon" />
+                        </span>
+                        <span className="w-10 h-10 bg-[#514A4A] rounded-full flex items-center justify-center">
+                            <FaEnvelope className="icon" />
+                        </span>
                     </div>
                 </nav>
 
                 {/* Mobile Navigation */}
                 <button
                     onClick={() => setShowMenu(!showMenu)}
-                    className="absolute z-10 lg:hidden top-1/2 -translate-y-1/2 right-12 text-2xl"
+                    className="absolute lg:hidden top-1/2 -translate-y-1/2 right-12 text-2xl"
                 >
                     {showMenu ? <FaTimes /> : <FaHamburger />}
                 </button>
                 {showMenu && (
-                    <nav className="lg:hidden absolute z-20 top-full">
-                        <ul className="">
+                    <nav className="navigation px-10 w-full lg:hidden absolute left-0 top-full">
+                        <ul>
                             {navigation.map((nav) => (
-                                <li key={nav.name} className="mb-4">
+                                <li key={nav.name} className="mb-4 font-marcellus">
                                     <Link href={nav.href} className="uppercase">
                                         <span>{nav.name}</span>
                                     </Link>
@@ -75,7 +79,7 @@ const Nav: React.FC = () => {
             {/* Banner content */}
             <div className="banner-content flex flex-col md:px-20 relative z-10">
                 <div className="order-2">
-                    <h1 className="font-light text-4xl md:text-[4rem] md:leading-[87.42px] relative w-max">
+                    <h1 className="font-extralight font-marcellus text-4xl md:text-[4rem] md:leading-[87.42px] relative w-max">
                         Welcome to MEV <br /> Specialist Hospital
                     </h1>
                     <p className="py-6 text-white">

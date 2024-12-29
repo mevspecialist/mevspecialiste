@@ -126,7 +126,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="flex flex-col justify-center md:flex-row md:justify-between pt-10">
                 <p className="text-[#232323] text-[14px]">
-                    Copyright &copy; 2024 Mevspecialist Hospital Abuja{' '}
+                    Copyright &copy; 2024 {''} Mevspecialist Hospital Abuja{' '}
                 </p>
                 <p className="text-[#232323] text-[14px] flex gap-4">
                     <span className="border-r-[1px] border-[#232323] pr-4">

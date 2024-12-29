@@ -158,22 +158,22 @@ section li:nth-child(even)::before {
     background-color: #3d419599;
 }
 
-form > div {
+form.homepage > div {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin-bottom: 2rem;
 }
 
-form input,
-textarea {
+form.homepage input,
+form.homepage textarea {
     padding: 0.7rem 1rem;
     border-radius: 8px;
     border: 1px solid #e2e2e2;
 }
 
-form input,
-textarea::placeholder {
+form.homepage input,
+form.homepage textarea::placeholder {
     font-size: 0.7rem;
 }
 

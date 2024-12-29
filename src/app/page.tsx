@@ -147,7 +147,7 @@ export default function Home() {
             <section className="service relative bg-black py-10 px-6 -mx-10 md:-mx-32">
                 <div className="rounded-3xl text-center text-white py-24">
                     <div className="relative z-10 px-10">
-                        <h2 className="text-2xl md:text-5xl font-light">
+                        <h2 className="text-2xl md:text-5xl font-marcellus font-light">
                             Why Choose Our Medical Services
                         </h2>
                         <p className="text-white py-10">
@@ -246,7 +246,7 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
-                <form className="lg:w-1/2 bg-[#FFF2FB] p-10 rounded-3xl text-btn-color">
+                <form className="homepage lg:w-1/2 bg-[#FFF2FB] p-10 rounded-3xl text-btn-color">
                     <div>
                         <label htmlFor="">Your Name</label>
                         <input
