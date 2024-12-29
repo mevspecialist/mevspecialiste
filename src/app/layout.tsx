@@ -3,6 +3,7 @@ import { Manrope, Marcellus } from 'next/font/google';
 import './globals.css';
 import Nav from '@/layouts/Nav';
 import Footer from '@/layouts/Footer';
+import { FooterBanner } from '@/layouts/Footer';
 
 const manrope = Manrope({
     variable: '--font-manrope',
@@ -11,7 +12,7 @@ const manrope = Manrope({
 const marcellus = Marcellus({
     variable: '--font-marcellus',
     subsets: ['latin'],
-    weight: '400'
+    weight: '400',
 });
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function RootLayout({
                 <div>
                     <Nav />
                     {children}
+                    <FooterBanner />
                     <Footer />
                 </div>
             </body>

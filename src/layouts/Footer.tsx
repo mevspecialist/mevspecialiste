@@ -30,26 +30,25 @@ const services: string[] = [
     '24hr emergency/ambulance service',
 ];
 
-// const FooterBanner: React.FC = () => {
-//     return (
-//         <div>
-//             <h4 className="capitalize">Start Your Journey</h4>
-//             <p className="text-white">
-//                 We believe in affordable <br></br> specialty healthcare for all.
-//             </p>
-//             <Image
-//                 src="/footer-banner-lg.jpeg"
-//                 alt="Logo"
-//                 width={700}
-//                 height={50}
-//             />
-//             <Button
-//                 onClick={() => console.log('Button clicked')}
-//                 label="Shedule Appointment"
-//             />
-//         </div>
-//     );
-// };
+export const FooterBanner: React.FC = () => {
+    return (
+        <section className="footer-banner relative bg-[url('/footer-banner-lg.jpeg')] w-full bg-cover bg-center text-center py-40 lg:py-60">
+            <div className="relative z-10">
+                <header className="font-marcellus uppercase text-white">
+                    Start Your Journey
+                </header>
+                <p className="text-white text-xl lg:text-4xl py-6">
+                    We believe in affordable <br></br> specialty healthcare for
+                    all.
+                </p>
+                <Button
+                    onClick={() => console.log('Button clicked')}
+                    label="Shedule Appointment"
+                />
+            </div>
+        </section>
+    );
+};
 
 const Footer: React.FC = () => {
     return (
