@@ -11,8 +11,9 @@ import {
     FaPhoneAlt,
     FaMapMarker,
 } from 'react-icons/fa';
+import { IconType } from 'react-icons';
 
-const socialLinks = [
+const socialLinks: { name: string; href: string; icon: IconType }[] = [
     { name: 'Facebook', href: '/', icon: FaFacebook },
     { name: 'Twitter', href: '/blog', icon: FaTwitter },
     { name: 'LinkedIn', href: '/contact', icon: FaLinkedin },
