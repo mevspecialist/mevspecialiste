@@ -20,6 +20,7 @@ export default {
                 'pry-text-color-1': '#222222',
                 'pry-text-color-2': '#909090',
                 'btn-color': '#A9518B',
+                'hover-color': '#FFBBE8',
             },
         },
     },

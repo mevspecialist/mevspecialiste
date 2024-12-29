@@ -3,10 +3,10 @@ import Button from '@/components/Button';
 import Image from 'next/image';
 import {
     FaPhoneAlt,
-    FaAddressCard,
     FaMapMarker,
     FaWhatsapp,
     FaClock,
+    FaEnvelope,
 } from 'react-icons/fa';
 
 const serviceOne: { title: string; image: string }[] = [
@@ -34,7 +34,7 @@ const contactDetails: {
     {
         title: 'Email Address',
         content: 'care@mevspecialisthospital.com',
-        icon: FaAddressCard,
+        icon: FaEnvelope,
     },
     {
         title: 'Address',
@@ -161,7 +161,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="pt-10">
-                    <ul className="flex flex-col md:flex-row gap-4">
+                    <ul className="flex flex-col lg:flex-row gap-4">
                         {serviceOne.map((service, index) => (
                             <li
                                 key={index}
@@ -170,18 +170,22 @@ export default function Home() {
                                     backgroundImage: `url(${service.image})`,
                                 }}
                             >
-                                <span className='relative z-10'>{service.title}</span>
+                                <span className="relative z-10">
+                                    {service.title}
+                                </span>
                             </li>
                         ))}
                     </ul>
                 </div>
             </section>
-            <section>
-                <header className="font-marcellus">Our Services</header>
-                <div>
+            <section className="py-20 relative">
+                <header className="font-marcellus uppercase mb-6">
+                    Our Services
+                </header>
+                <div className="flex flex-col md:flex-row justify-between md:items-baseline">
                     <div>
                         <h2>Services We Offer</h2>
-                        <p>
+                        <p className="pt-6 pb-4 w-1/2">
                             The hospital offers a calm ambience to help you
                             recover from the discomfort that comes with ailment
                         </p>
@@ -190,26 +194,35 @@ export default function Home() {
                             label="Schedule Appointment"
                         />
                     </div>
-                    <div>
+                    <div className="absolute bottom-2 self-center lg:static">
                         <Button
                             onClick={(): void => console.log('clicked')}
                             label="Explore other services"
                         />
                     </div>
                 </div>
-                <div>
+                <div className="relative grid lg:grid-cols-3 gap-4 py-6">
                     {mainServices.map((service, index) => (
-                        <div key={index}>
+                        <div
+                            key={index}
+                            className="px-10 py-10 text-xl bg-[#F8F8F8] rounded-xl hover:bg-hover-color hover:text-[#3C3C3C] transition-colors duration-200"
+                        >
                             <h3>{service.title}</h3>
-                            <p>{service.content}</p>
+                            <p className="py-2">{service.content}</p>
+                            {/* <span
+                                aria-hidden="true"
+                                className="inline-block w-10 h-10 bg-btn-color rounded-full absolute top-10"
+                            ></span> */}
                         </div>
                     ))}
                 </div>
             </section>
-            <section>
-                <div>
-                    <header>Get in Touch</header>
-                    <div>
+            <section className="py-20 lg:flex justify-between">
+                <div className="lg:w-1/2 mr-14">
+                    <header className="font-marcellus uppercase">
+                        Get in Touch
+                    </header>
+                    <div className="py-6">
                         <h2>We’d Love to Hear From You</h2>
                         <p>
                             For urgent care, simply call our 24 hours emergency
@@ -218,17 +231,24 @@ export default function Home() {
                     </div>
                     <div>
                         {contactDetails.map((contact, index) => (
-                            <div key={index}>
-                                <contact.icon />
-                                <h3>{contact.title}</h3>
-                                <p>{contact.content}</p>
+                            <div
+                                key={index}
+                                className="flex gap-4 items-baseline border-b-[1px] last:border-b-0 py-3"
+                            >
+                                <div className="p-2 bg-btn-color text-white w-max rounded-full">
+                                    <contact.icon />
+                                </div>
+                                <div className="relative -top-3">
+                                    <h3>{contact.title}</h3>
+                                    <p>{contact.content}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
-                <form action="">
+                <form className="lg:w-1/2 bg-[#FFF2FB] p-10 rounded-3xl text-btn-color">
                     <div>
-                        <label htmlFor="">Name</label>
+                        <label htmlFor="">Your Name</label>
                         <input
                             type="text"
                             name=""
@@ -237,7 +257,7 @@ export default function Home() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="">Email</label>
+                        <label htmlFor="">Your Email</label>
                         <input
                             type="text"
                             name=""
@@ -246,11 +266,12 @@ export default function Home() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="">Message</label>
+                        <label htmlFor="">Your Message</label>
                         <textarea
                             name=""
                             id=""
                             placeholder="Enter your message"
+                            rows={8}
                         ></textarea>
                     </div>
                     <Button
@@ -259,7 +280,7 @@ export default function Home() {
                     />
                 </form>
             </section>
-            <section>
+            <section className="py-20">
                 <header>our team</header>
                 <div>
                     <h2>Meet Our Medical Specialists</h2>
