@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { FaPhone, FaEnvelope, FaHamburger, FaTimes } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaHamburger, FaTimes } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '@/components/Button';
@@ -41,7 +41,7 @@ const Nav: React.FC = () => {
                         ))}
                     </ul>
                     <div className="flex gap-4 ml-20">
-                        <FaPhone className="icon" />
+                        <FaPhoneAlt className="icon" />
                         <FaEnvelope className="icon" />
                     </div>
                 </nav>
@@ -65,8 +65,8 @@ const Nav: React.FC = () => {
                             ))}
                         </ul>
                         <div className="flex gap-4">
-                            <FaPhone className="icon" />
-                            <FaEnvelope className="icon" />
+                            <FaPhoneAlt />
+                            <FaEnvelope />
                         </div>
                     </nav>
                 )}
@@ -78,7 +78,7 @@ const Nav: React.FC = () => {
                     <h1 className="font-light text-4xl md:text-[4rem] md:leading-[87.42px] relative w-max">
                         Welcome to MEV <br /> Specialist Hospital
                     </h1>
-                    <p className="font-extralight py-6">
+                    <p className="py-6 text-white">
                         5 star one stop facility providing <br />
                         Comprehensive solution to most Health care needs
                     </p>
@@ -111,9 +111,9 @@ const Nav: React.FC = () => {
                             className="order-1 w-full rounded-t-xl"
                         />
                     </div>
-                    <p className="font-extralight order-1 text-center md:text-left md:relative top-40">
+                    <p className="text-white order-1 text-center md:text-left md:relative top-40">
                         {' '}
-                        <span className="text-btn-color font-marcellus">
+                        <span className="text-btn-color font-marcellus mr-1">
                             5/5
                         </span>{' '}
                         Rating From Our Clients

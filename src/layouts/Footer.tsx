@@ -8,8 +8,8 @@ import {
     FaTwitter,
     FaLinkedin,
     FaInstagram,
-    FaPhone,
-    FaLocationArrow,
+    FaPhoneAlt,
+    FaMapMarker,
 } from 'react-icons/fa';
 
 const socialLinks = [
@@ -19,7 +19,7 @@ const socialLinks = [
     { name: 'Instagram', href: '/Services', icon: FaInstagram },
 ];
 
-const services = [
+const services: string[] = [
     'primary care',
     'obs & gyn',
     'pediatrics',
@@ -53,8 +53,8 @@ const services = [
 
 const Footer: React.FC = () => {
     return (
-        <footer className="px-10 py-20 md:text-center md:px-20 bg-footer-bg text-pry-text-color-2">
-            <div className="flex flex-col md:flex-row justify-between gap-8">
+        <footer className="px-10 pt-20 pb-10 md:text-center md:px-20 bg-footer-bg text-pry-text-color-2">
+            <div className="relative flex flex-col md:flex-row justify-between gap-8 pb-6">
                 <div className="md:w-1/3">
                     <Link href="/">
                         <Image
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
                         {socialLinks.map((link) => (
                             <li
                                 key={link.name}
-                                className="bg-[#A9518B] text-white p-2 rounded-full"
+                                className="bg-btn-color text-white p-2 rounded-full"
                             >
                                 <a href={link.href}>
                                     <link.icon />
@@ -104,30 +104,32 @@ const Footer: React.FC = () => {
                         <div>
                             <Button
                                 onClick={() => console.log('Button clicked')}
-                                label="Submit"
+                                label="Subscribe"
                             />
                         </div>
                     </form>
                     <div className="font-light">
                         <li className="flex gap-2 items-center mb-4">
-                            <span className="bg-[#A9518B] text-white p-2 rounded-full">
-                                <FaPhone />
+                            <span className="bg-btn-color text-white p-2 rounded-full">
+                                <FaPhoneAlt />
                             </span>
                             <span>+2348063583111</span>
                         </li>
                         <li className="flex gap-2 items-center">
-                            <span className="bg-[#A9518B] text-white p-2 rounded-full">
-                                <FaLocationArrow />
+                            <span className="bg-btn-color text-white p-2 rounded-full">
+                                <FaMapMarker />
                             </span>
                             <span>6 Djibouti Street Wuse 2, FCT Abuja </span>
                         </li>
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row justify-between text-[#232323] pt-20">
-                <p>Copyright &copy; 2024 MevSpecialist Hospital Abuja </p>
-                <p>
-                    <span>Terms of Use</span>
+            <div className="flex flex-col justify-center md:flex-row md:justify-between pt-10">
+                <p className="text-[#232323] text-[14px]">
+                    Copyright &copy; 2024 MevSpecialist Hospital Abuja{' '}
+                </p>
+                <p className="text-[#232323] text-[14px] flex gap-4">
+                    <span className='border-r-[1px] border-[#232323] pr-4'>Terms of Use</span>
                     <span>Privacy Policy</span>
                 </p>
             </div>
