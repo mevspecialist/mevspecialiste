@@ -179,13 +179,13 @@ export default function Home() {
                 </div>
             </section>
             <section className="py-20 relative">
-                <header className="font-marcellus uppercase mb-6">
+                <header className="font-marcellus uppercase text-center lg:text-left mb-6">
                     Our Services
                 </header>
                 <div className="flex flex-col md:flex-row justify-between md:items-baseline">
-                    <div>
+                    <div className="text-center lg:text-left">
                         <h2>Services We Offer</h2>
-                        <p className="pt-6 pb-4 w-1/2">
+                        <p className="pt-6 pb-4 lg:w-1/2">
                             The hospital offers a calm ambience to help you
                             recover from the discomfort that comes with ailment
                         </p>
@@ -218,11 +218,11 @@ export default function Home() {
                 </div>
             </section>
             <section className="py-20 lg:flex justify-between">
-                <div className="lg:w-1/2 mr-14">
-                    <header className="font-marcellus uppercase">
+                <div className="lg:w-1/2 lg:mr-14">
+                    <header className="font-marcellus uppercase text-center lg:text-left">
                         Get in Touch
                     </header>
-                    <div className="py-6">
+                    <div className="py-6 text-center lg:text-left">
                         <h2>We’d Love to Hear From You</h2>
                         <p>
                             For urgent care, simply call our 24 hours emergency
@@ -281,25 +281,31 @@ export default function Home() {
                 </form>
             </section>
             <section className="py-20">
-                <header>our team</header>
-                <div>
-                    <h2>Meet Our Medical Specialists</h2>
+                <header className="font-marcellus uppercase text-center lg:text-left">our team</header>
+                <div className="text-center lg:text-left">
+                    <h2 className="text-2xl font-semibold py-4">
+                        Meet Our Medical Specialists
+                    </h2>
                     <p>
                         Our Doctors are well trained, licensed and experienced
                     </p>
                 </div>
-                <div>
+                <div className="py-10 flex flex-col lg:flex-row gap-4">
                     {doctors.map((doctor, index) => (
-                        <figure key={index}>
+                        <figure key={index} className="w-full">
                             <Image
                                 src={doctor.image}
                                 alt={doctor.name}
                                 width={100}
                                 height={100}
+                                quality={100}
+                                className="w-full h-full rounded-xl object-cover"
                             />
-                            <figcaption>
-                                <p>{doctor.name}</p>
-                                <p>{doctor.title}</p>
+                            <figcaption className="text-center py-4">
+                                <h4 className="text-xl mb-2">{doctor.name}</h4>
+                                <p className="font-marcellus text-xs">
+                                    {doctor.title}
+                                </p>
                             </figcaption>
                         </figure>
                     ))}
