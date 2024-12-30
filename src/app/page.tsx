@@ -7,6 +7,8 @@ import {
     FaWhatsapp,
     FaClock,
     FaEnvelope,
+    FaRegCheckCircle,
+    FaCheckCircle,
 } from 'react-icons/fa';
 
 const serviceOne: { title: string; image: string }[] = [
@@ -135,13 +137,14 @@ export default function Home() {
                         width={100}
                         height={200}
                         alt="family of father, mother and child"
-                        className="w-full h-full rounded-3xl"
+                        className="w-full h-full rounded-3xl object-cover"
                         quality={100}
                     />
-                    <span className="absolute top-10 w-2/3 -left-28 text-[#3D4195] text-[14px] leading-[19.5px] bg-white px-6 py-10 border-[1px] border-btn-color rounded-full font-marcellus">
+                    <span className="absolute -right-8 w-48 -top-10 text-[8px] leading-3 py-6 px-10 lg:top-10 lg:w-2/3 lg:-left-28 text-[#3D4195] lg:text-[14px] lg:leading-[19.5px] bg-white lg:px-6 lg:py-10 border-[1px] border-btn-color rounded-full font-marcellus">
                         Mev Specialist Hospital is a 5 star one stop facility
                         providing Comprehensive solution to most Health care
                         needs.
+                        <FaCheckCircle className="absolute z-20 -top-4 left-4 text-btn-color w-10 h-10" />
                     </span>
                 </div>
             </section>
@@ -282,7 +285,9 @@ export default function Home() {
                 </form>
             </section>
             <section className="py-20">
-                <header className="font-marcellus uppercase text-center lg:text-left">our team</header>
+                <header className="font-marcellus uppercase text-center lg:text-left">
+                    our team
+                </header>
                 <div className="text-center lg:text-left">
                     <h2 className="text-2xl font-semibold py-4">
                         Meet Our Medical Specialists
