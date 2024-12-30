@@ -74,6 +74,7 @@ p {
 .banner {
     background-image: url('/banner-image.jpeg');
     background-size: cover;
+    background-position: center;
     color: #ffffff;
     position: relative;
 }
