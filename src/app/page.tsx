@@ -133,7 +133,7 @@ export default function Home() {
                         <div className="banner-card flex flex-col order-2 my-6 lg:my-0 lg:-mt-36">
                             <div className="order-2 p-6">
                                 <header className="mb-4">Core Services</header>
-                                <ul className="font-light">
+                                <ul className="font-light text-sm">
                                     <li>Patient Safety</li>
                                     <li>Service Excellence</li>
                                     <li>Service Excellence</li>
