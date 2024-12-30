@@ -107,8 +107,57 @@ const doctors: { name: string; image: string; title: string }[] = [
 
 export default function Home() {
     return (
-        <main className="px-10 py-20 md:px-32 md:py-40">
-            <section className="pb-36 md:grid grid-cols-2 gap-36">
+        <main className="px-10 md:px-32">
+            <article className="banner relative px-10 md:px-24 -mx-10 md:-mx-32">
+                <div className="banner-content flex flex-col py-40 relative z-10">
+                    <div className="order-2">
+                        <h1 className="font-extralight font-marcellus text-4xl md:text-[4rem] md:leading-[87.42px] relative w-max">
+                            Welcome to MEV <br /> Specialist Hospital
+                        </h1>
+                        <p className="py-6 text-white">
+                            5 star one stop facility providing <br />
+                            Comprehensive solution to most Health care needs
+                        </p>
+                        <Button
+                            onClick={() => console.log('Button clicked')}
+                            label="Schedule Appointment"
+                        />
+                    </div>
+                    <div className="flex flex-col md:flex-row justify-between py-10 order-1 font-light">
+                        <span className="uppercase font-marcellus order-2 md:order-none mt-6 md:mt-0">
+                            MEV Specialist Hospital
+                        </span>
+                        <span>Watch Our Story</span>
+                    </div>
+                    <div className="order-3 md:flex justify-between items-baseline">
+                        <div className="banner-card flex flex-col order-2 my-6 lg:my-0 lg:-mt-36">
+                            <div className="order-2 p-6">
+                                <header className="mb-4">Core Services</header>
+                                <ul className="font-light">
+                                    <li>Patient Safety</li>
+                                    <li>Service Excellence</li>
+                                    <li>Service Excellence</li>
+                                </ul>
+                            </div>
+                            <Image
+                                width={200}
+                                height={200}
+                                src="/images/banner-card-image.jpeg"
+                                alt="Logo"
+                                className="order-1 w-full rounded-t-xl"
+                            />
+                        </div>
+                        <p className="text-white order-1 text-center md:text-left md:relative top-40">
+                            {' '}
+                            <span className="text-btn-color font-marcellus mr-1">
+                                5/5
+                            </span>{' '}
+                            Rating From Our Clients
+                        </p>
+                    </div>
+                </div>
+            </article>
+            <section className="py-36 md:grid grid-cols-2 gap-36">
                 <div className="flex flex-col gap-4">
                     <header className="font-marcellus">
                         MEV SPECIALIST HOSPITAL
