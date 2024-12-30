@@ -7,7 +7,6 @@ import {
     FaWhatsapp,
     FaClock,
     FaEnvelope,
-    FaRegCheckCircle,
     FaCheckCircle,
 } from 'react-icons/fa';
 
