@@ -107,7 +107,7 @@ const doctors: { name: string; image: string; title: string }[] = [
 export default function Home() {
     return (
         <main className="px-10 py-20 md:px-32 md:py-40">
-            <section className="pb-36 md:grid grid-cols-2 gap-20">
+            <section className="pb-36 md:grid grid-cols-2 gap-36">
                 <div className="flex flex-col gap-4">
                     <header className="font-marcellus">
                         MEV SPECIALIST HOSPITAL
@@ -133,11 +133,12 @@ export default function Home() {
                     <Image
                         src={'/images/banner-card-image.jpeg'}
                         width={100}
-                        height={100}
+                        height={200}
                         alt="family of father, mother and child"
-                        className="w-full rounded-3xl"
+                        className="w-full h-full rounded-3xl"
+                        quality={100}
                     />
-                    <span className="absolute top-10 text-[#3D4195] text-[7.7px] leading-[10.1px] bg-white px-6 py-20 border-[1px] border-btn-color rounded-full">
+                    <span className="absolute top-10 w-2/3 -left-28 text-[#3D4195] text-[14px] leading-[19.5px] bg-white px-6 py-10 border-[1px] border-btn-color rounded-full font-marcellus">
                         Mev Specialist Hospital is a 5 star one stop facility
                         providing Comprehensive solution to most Health care
                         needs.
