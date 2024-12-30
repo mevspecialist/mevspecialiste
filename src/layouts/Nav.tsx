@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaHamburger, FaTimes } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from '@/components/Button';
 
 const navigation = [
     { name: 'Home', href: '/' },
