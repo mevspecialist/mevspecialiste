@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import Button from '@/components/Button';
 import Image from 'next/image';
 import {
@@ -8,6 +9,7 @@ import {
     FaClock,
     FaEnvelope,
     FaCheckCircle,
+    FaArrowDown,
 } from 'react-icons/fa';
 
 const serviceOne: { title: string; image: string }[] = [
@@ -105,7 +107,24 @@ const doctors: { name: string; image: string; title: string }[] = [
     },
 ];
 
+const faq: { question: string; answer: string }[] = [
+    {
+        question: 'What is dental care?',
+        answer: 'Tooth valuable resources, dental care should take us regularly to stay healthy. Oral Health Overview. Good dental or oral care is important to maintaining healthy teeth, gums, and tongue. Oral problems, including bad breath, dry mouth, canker or cold sores, TMD, tooth decay, or thrush are all treatable with proper diagnosis and care.',
+    },
+    {
+        question: 'Do you offer emergency care?',
+        answer: 'Yes, we offer emergency care services. Our emergency care services are available 24/7. We have a team of doctors and nurses who are always available to attend to you in case of an emergency.',
+    },
+    {
+        question: 'Do you take my insurance?',
+        answer: 'We accept most insurance plans. Please call our office to verify acceptance of your plan. Qualifications for insurance coverage may differ due to the uniqueness of each procedure.',
+    },
+];
+
 export default function Home() {
+    const [showFaQ, setShowFaQ] = useState<boolean>(false);
+
     return (
         <main className="px-10 md:px-32">
             <article className="banner relative px-10 md:px-24 -mx-10 md:-mx-32">
@@ -364,6 +383,76 @@ export default function Home() {
                         </figure>
                     ))}
                 </div>
+            </section>
+            <section className="py-20">
+                <div className="flex flex-col justify-between text-center lg:text-left lg:flex-row ">
+                    <div>
+                        <h2 className="text[#00264F] text-3xl font-bold">
+                            Explore Our Blog Posts
+                        </h2>
+                        <p className="py-4">
+                            Get updates on latest news, health and lifestyle
+                            tips
+                        </p>
+                    </div>
+                    <div>
+                        <Button
+                            onClick={() => console.log('clicked')}
+                            label={'Learn More'}
+                        />
+                    </div>
+                </div>
+                <article>
+                    <figure>
+                        <Image
+                            src={'/images/landingpage/faq.jpeg'}
+                            width={100}
+                            height={100}
+                            alt="image alt"
+                        />
+                        <figcaption></figcaption>
+                    </figure>
+                </article>
+            </section>
+            <section className="py-20 lg:px-4 lg:grid grid-cols-2 gap-20 justify-between">
+                <div>
+                    <header className="font-marcellus uppercase text-center lg:text-left">
+                        faq
+                    </header>
+                    <div>
+                        <h2 className="text-center lg:text-left">
+                            Your Questions Answered
+                        </h2>
+                        <div className="pt-6 pb-10">
+                            {faq.map((question, index) => (
+                                <div key={index} className="py-2">
+                                    <button
+                                        onClick={() =>
+                                            setShowFaQ((prev) => !prev)
+                                        }
+                                        className="relative text-left w-full px-6 py-3 bg-[#F8F8F8] hover:bg-hover-color rounded-2xl"
+                                    >
+                                        {question.question}
+                                        <FaArrowDown className="absolute text-btn-color top-1/2 transform -translate-y-1/2 right-6" />
+                                    </button>
+                                    {showFaQ && (
+                                        <p className="px-4 pt-4 text-sm">
+                                            {question.answer}
+                                        </p>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <Image
+                    src={'/images/landingpage/faq.jpeg'}
+                    width={100}
+                    height={100}
+                    alt={''}
+                    quality={100}
+                    className="w-full h-full rounded-3xl"
+                />
             </section>
         </main>
     );
