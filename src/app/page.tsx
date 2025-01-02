@@ -176,7 +176,7 @@ export default function Home() {
                     </div>
                 </div>
             </article>
-            <section className="py-36 md:grid grid-cols-2 gap-36">
+            <section className="py-36 lg:grid grid-cols-2 gap-36">
                 <div className="flex flex-col gap-4">
                     <header className="font-marcellus">
                         MEV SPECIALIST HOSPITAL
@@ -414,8 +414,8 @@ export default function Home() {
                     </figure>
                 </article>
             </section>
-            <section className="py-20 lg:px-4 lg:grid grid-cols-2 gap-20 justify-between">
-                <div>
+            <section className="py-20 lg:px-4 lg:flex gap-20 justify-between">
+                <div className="lg:w-[50%]">
                     <header className="font-marcellus uppercase text-center lg:text-left">
                         faq
                     </header>
@@ -465,7 +465,7 @@ export default function Home() {
                     height={100}
                     alt={''}
                     quality={100}
-                    className="w-full h-full rounded-3xl"
+                    className="w-full h-full lg:w-[45%] lg:h-[500px] rounded-3xl"
                 />
             </section>
         </main>
