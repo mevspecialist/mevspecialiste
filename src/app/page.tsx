@@ -123,7 +123,7 @@ const faq: { question: string; answer: string }[] = [
 ];
 
 export default function Home() {
-    const [showFaQ, setShowFaQ] = useState<boolean>(false);
+    const [showFaQ, setShowFaQ] = useState<number>(0);
 
     return (
         <main className="px-10 md:px-32">
@@ -428,18 +428,32 @@ export default function Home() {
                                 <div key={index} className="py-2">
                                     <button
                                         onClick={() =>
-                                            setShowFaQ((prev) => !prev)
+                                            setShowFaQ((prev) =>
+                                                prev === index ? 0 : index
+                                            )
                                         }
-                                        className="relative text-left w-full px-6 py-3 bg-[#F8F8F8] hover:bg-hover-color rounded-2xl"
+                                        className={`relative font-semibold text-left w-full px-6 py-3 bg-[#F8F8F8] hover:bg-hover-color rounded-2xl ${
+                                            showFaQ === index &&
+                                            'bg-hover-color'
+                                        }`}
                                     >
                                         {question.question}
-                                        <FaArrowDown className="absolute text-btn-color top-1/2 transform -translate-y-1/2 right-6" />
+                                        <FaArrowDown
+                                            className={`absolute text-btn-color top-1/2 transform -translate-y-1/2 right-6 ${
+                                                showFaQ === index &&
+                                                'transform rotate-180 text-black'
+                                            }`}
+                                        />
                                     </button>
-                                    {showFaQ && (
-                                        <p className="px-4 pt-4 text-sm">
-                                            {question.answer}
-                                        </p>
-                                    )}
+                                    <p
+                                        className={`px-4 pt-4 text-sm overflow-hidden transition-[max-height] duration-500 linear ${
+                                            showFaQ === index
+                                                ? 'max-h-56'
+                                                : 'max-h-0'
+                                        }`}
+                                    >
+                                        {question.answer}
+                                    </p>
                                 </div>
                             ))}
                         </div>
