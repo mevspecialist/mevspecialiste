@@ -122,6 +122,26 @@ const faq: { question: string; answer: string }[] = [
     },
 ];
 
+const blogPosts: { title: string; image: string; content: string }[] = [
+    {
+        title: ' Childhood Nutrition: Feeding Your Child For Optimal Development',
+        image: '/images/landingpage/blog-1.jpeg',
+        content:
+            'Your kids are growing fast, and what they eat matters! As parents, we can choose…',
+    },
+    {
+        title: 'Lifestyle Changes For Cancer Prevention: A Journey Towards Wellness',
+        image: '/images/landingpage/blog-2.jpeg',
+        content:
+            'Lifestyle Changes For Cancer Prevention: A Journey Towards Wellness',
+    },
+    {
+        title: 'The Diabetes Fight: How To Manage Your Blood Sugar Levels',
+        image: '/images/landingpage/blog-3.png',
+        content: 'The Diabetes Fight: How To Manage Your Blood Sugar Levels',
+    },
+];
+
 export default function Home() {
     const [showFaQ, setShowFaQ] = useState<number>(0);
 
@@ -384,10 +404,10 @@ export default function Home() {
                     ))}
                 </div>
             </section>
-            <section className="py-20">
+            <section className="py-20 lg:pb-60">
                 <div className="flex flex-col justify-between text-center lg:text-left lg:flex-row ">
                     <div>
-                        <h2 className="text[#00264F] text-3xl font-bold">
+                        <h2 className="text-blog-color text-3xl font-bold">
                             Explore Our Blog Posts
                         </h2>
                         <p className="py-4">
@@ -402,17 +422,26 @@ export default function Home() {
                         />
                     </div>
                 </div>
-                <article>
-                    <figure>
-                        <Image
-                            src={'/images/landingpage/faq.jpeg'}
-                            width={100}
-                            height={100}
-                            alt="image alt"
-                        />
-                        <figcaption></figcaption>
-                    </figure>
-                </article>
+                <div className="py-10 grid lg:grid-cols-3 gap-4">
+                    {blogPosts.map((post, index) => (
+                        <article key={index} className="py-4">
+                            <Image
+                                src={post.image}
+                                width={100}
+                                height={100}
+                                alt="image alt"
+                                className="w-full h-full rounded-3xl object-cover"
+                                quality={100}
+                            />
+                            <div className="mt-6">
+                                <h3 className="text-xl font-semibold text-blog-color capitalize mb-4">
+                                    {post.title}
+                                </h3>
+                                <p className="text-[#2F2F2F]">{post.content}</p>
+                            </div>
+                        </article>
+                    ))}
+                </div>
             </section>
             <section className="py-20 lg:px-4 lg:flex gap-20 justify-between">
                 <div className="lg:w-[50%]">
