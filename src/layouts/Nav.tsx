@@ -10,7 +10,7 @@ const navigation = [
     { name: 'Contact', href: '/contact' },
     { name: 'Services', href: '/services' },
     { name: 'Career', href: '/career' },
-    { name: 'Facility Hub', href: '/hub' },
+    { name: 'Facility Hub', href: '/facility-hub' },
 ];
 
 const Nav: React.FC = () => {
