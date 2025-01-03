@@ -11,6 +11,7 @@ import {
     FaCheckCircle,
     FaArrowDown,
 } from 'react-icons/fa';
+import Link from 'next/link';
 
 const serviceOne: { title: string; image: string }[] = [
     { title: 'Operating Room', image: '/images/landingpage/why-choose-2.jpeg' },
@@ -404,8 +405,8 @@ export default function Home() {
                     ))}
                 </div>
             </section>
-            <section className="py-20 lg:pb-60">
-                <div className="flex flex-col justify-between text-center lg:text-left lg:flex-row ">
+            <section className="py-28">
+                <div className="pb-6 flex flex-col justify-between text-center lg:text-left lg:flex-row ">
                     <div>
                         <h2 className="text-blog-color text-3xl font-bold">
                             Explore Our Blog Posts
@@ -416,13 +417,15 @@ export default function Home() {
                         </p>
                     </div>
                     <div>
-                        <Button
-                            onClick={() => console.log('clicked')}
-                            label={'Learn More'}
-                        />
+                        <Link
+                            href={'/blog'}
+                            className="bg-btn-color text-white px-8 py-3 rounded-full font-light"
+                        >
+                            Learn More
+                        </Link>
                     </div>
                 </div>
-                <div className="py-10 grid lg:grid-cols-3 gap-4">
+                <div className="grid lg:grid-cols-3 gap-4">
                     {blogPosts.map((post, index) => (
                         <article key={index} className="py-4">
                             <Image
@@ -430,15 +433,19 @@ export default function Home() {
                                 width={100}
                                 height={100}
                                 alt="image alt"
-                                className="w-full h-full rounded-3xl object-cover"
+                                className="w-full rounded-3xl object-cover inline-block"
                                 quality={100}
                             />
-                            <div className="mt-6">
-                                <h3 className="text-xl font-semibold text-blog-color capitalize mb-4">
-                                    {post.title}
-                                </h3>
-                                <p className="text-[#2F2F2F]">{post.content}</p>
-                            </div>
+                            <Link href={`/blog/${post.title}`}>
+                                <div className="mt-6">
+                                    <h3 className="text-xl font-semibold text-blog-color capitalize mb-4">
+                                        {post.title}
+                                    </h3>
+                                    <p className="text-[#2F2F2F]">
+                                        {post.content}
+                                    </p>
+                                </div>
+                            </Link>
                         </article>
                     ))}
                 </div>
