@@ -1,8 +1,9 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaHamburger, FaTimes } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useCloseElementOnClick } from '@/utils/useClickOutside';
 
 const navigation = [
     { name: 'Home', href: '/' },
@@ -15,8 +16,12 @@ const navigation = [
 
 const Nav: React.FC = () => {
     const [showMenu, setShowMenu] = useState<boolean>(false);
+    const ref = useRef<HTMLElement>(null);
     const [showStickyNav, setShowStickyNav] = useState<boolean>(true);
     const [lastScrollY, setLastScrollY] = useState<number>(0);
+
+    // close the menu when clicked outside of it
+    useCloseElementOnClick({ ref, onClickOutside: () => setShowMenu(false) });
 
     useEffect(() => {
         const handleScroll = () => {
@@ -40,6 +45,7 @@ const Nav: React.FC = () => {
 
     return (
         <header
+            ref={ref}
             className={`fixed left-0 z-20 right-0 px-10 pt-10 text-sm md:text-base transition-transform duration-300 ${
                 showStickyNav ? 'translate-y-0' : '-translate-y-full'
             }`}
