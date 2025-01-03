@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import Button from '@/components/Button';
 import Image from 'next/image';
 import {
@@ -8,7 +9,9 @@ import {
     FaClock,
     FaEnvelope,
     FaCheckCircle,
+    FaArrowDown,
 } from 'react-icons/fa';
+import Link from 'next/link';
 
 const serviceOne: { title: string; image: string }[] = [
     { title: 'Operating Room', image: '/images/landingpage/why-choose-2.jpeg' },
@@ -105,7 +108,44 @@ const doctors: { name: string; image: string; title: string }[] = [
     },
 ];
 
+const faq: { question: string; answer: string }[] = [
+    {
+        question: 'What is dental care?',
+        answer: 'Tooth valuable resources, dental care should take us regularly to stay healthy. Oral Health Overview. Good dental or oral care is important to maintaining healthy teeth, gums, and tongue. Oral problems, including bad breath, dry mouth, canker or cold sores, TMD, tooth decay, or thrush are all treatable with proper diagnosis and care.',
+    },
+    {
+        question: 'Do you offer emergency care?',
+        answer: 'Yes, we offer emergency care services. Our emergency care services are available 24/7. We have a team of doctors and nurses who are always available to attend to you in case of an emergency.',
+    },
+    {
+        question: 'Do you take my insurance?',
+        answer: 'We accept most insurance plans. Please call our office to verify acceptance of your plan. Qualifications for insurance coverage may differ due to the uniqueness of each procedure.',
+    },
+];
+
+const blogPosts: { title: string; image: string; content: string }[] = [
+    {
+        title: ' Childhood Nutrition: Feeding Your Child For Optimal Development',
+        image: '/images/landingpage/blog-1.jpeg',
+        content:
+            'Your kids are growing fast, and what they eat matters! As parents, we can choose…',
+    },
+    {
+        title: 'Lifestyle Changes For Cancer Prevention: A Journey Towards Wellness',
+        image: '/images/landingpage/blog-2.jpeg',
+        content:
+            'Lifestyle Changes For Cancer Prevention: A Journey Towards Wellness',
+    },
+    {
+        title: 'The Diabetes Fight: How To Manage Your Blood Sugar Levels',
+        image: '/images/landingpage/blog-3.png',
+        content: 'The Diabetes Fight: How To Manage Your Blood Sugar Levels',
+    },
+];
+
 export default function Home() {
+    const [showFaQ, setShowFaQ] = useState<number>(0);
+
     return (
         <main className="px-10 md:px-32">
             <article className="banner relative px-10 md:px-24 -mx-10 md:-mx-32">
@@ -157,7 +197,7 @@ export default function Home() {
                     </div>
                 </div>
             </article>
-            <section className="py-36 md:grid grid-cols-2 gap-36">
+            <section className="py-36 lg:grid grid-cols-2 gap-36">
                 <div className="flex flex-col gap-4">
                     <header className="font-marcellus">
                         MEV SPECIALIST HOSPITAL
@@ -364,6 +404,105 @@ export default function Home() {
                         </figure>
                     ))}
                 </div>
+            </section>
+            <section className="py-28">
+                <div className="pb-6 flex flex-col justify-between text-center lg:text-left lg:flex-row ">
+                    <div>
+                        <h2 className="text-blog-color text-3xl font-bold">
+                            Explore Our Blog Posts
+                        </h2>
+                        <p className="py-4">
+                            Get updates on latest news, health and lifestyle
+                            tips
+                        </p>
+                    </div>
+                    <div>
+                        <Link
+                            href={'/blog'}
+                            className="bg-btn-color text-white px-8 py-3 rounded-full font-light"
+                        >
+                            Learn More
+                        </Link>
+                    </div>
+                </div>
+                <div className="grid lg:grid-cols-3 gap-4">
+                    {blogPosts.map((post, index) => (
+                        <article key={index} className="py-4">
+                            <Image
+                                src={post.image}
+                                width={100}
+                                height={100}
+                                alt="image alt"
+                                className="w-full rounded-3xl object-cover inline-block"
+                                quality={100}
+                            />
+                            <Link href={`/blog/${post.title}`}>
+                                <div className="mt-6">
+                                    <h3 className="text-xl font-semibold text-blog-color capitalize mb-4">
+                                        {post.title}
+                                    </h3>
+                                    <p className="text-[#2F2F2F]">
+                                        {post.content}
+                                    </p>
+                                </div>
+                            </Link>
+                        </article>
+                    ))}
+                </div>
+            </section>
+            <section className="py-20 lg:px-4 lg:flex gap-20 justify-between">
+                <div className="lg:w-[50%]">
+                    <header className="font-marcellus uppercase text-center lg:text-left">
+                        faq
+                    </header>
+                    <div>
+                        <h2 className="text-center lg:text-left">
+                            Your Questions Answered
+                        </h2>
+                        <div className="pt-6 pb-10">
+                            {faq.map((question, index) => (
+                                <div key={index} className="py-2">
+                                    <button
+                                        onClick={() =>
+                                            setShowFaQ((prev) =>
+                                                prev === index ? 0 : index
+                                            )
+                                        }
+                                        className={`relative font-semibold text-left w-full px-6 py-3 bg-[#F8F8F8] hover:bg-hover-color rounded-2xl ${
+                                            showFaQ === index &&
+                                            'bg-hover-color'
+                                        }`}
+                                    >
+                                        {question.question}
+                                        <FaArrowDown
+                                            className={`absolute text-btn-color top-1/2 transform -translate-y-1/2 right-6 ${
+                                                showFaQ === index &&
+                                                'transform rotate-180 text-black'
+                                            }`}
+                                        />
+                                    </button>
+                                    <p
+                                        className={`px-4 pt-4 text-sm overflow-hidden transition-[max-height] duration-500 linear ${
+                                            showFaQ === index
+                                                ? 'max-h-56'
+                                                : 'max-h-0'
+                                        }`}
+                                    >
+                                        {question.answer}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <Image
+                    src={'/images/landingpage/faq.jpeg'}
+                    width={100}
+                    height={100}
+                    alt={''}
+                    quality={100}
+                    className="w-full h-full lg:w-[45%] lg:h-[500px] rounded-3xl"
+                />
             </section>
         </main>
     );

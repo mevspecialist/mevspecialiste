@@ -44,7 +44,7 @@ export const FooterBanner: React.FC = () => {
                 </p>
                 <Button
                     onClick={() => console.log('Button clicked')}
-                    label="Shedule Appointment"
+                    label="Schedule Appointment"
                 />
             </div>
         </section>

@@ -21,6 +21,7 @@ export default {
                 'pry-text-color-2': '#909090',
                 'btn-color': '#A9518B',
                 'hover-color': '#FFBBE8',
+                'blog-color': '#00264F',
             },
         },
     },
