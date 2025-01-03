@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaHamburger, FaTimes } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,10 +14,36 @@ const navigation = [
 ];
 
 const Nav: React.FC = () => {
-    const [showMenu, setShowMenu] = useState(false);
+    const [showMenu, setShowMenu] = useState<boolean>(false);
+    const [showStickyNav, setShowStickyNav] = useState<boolean>(true);
+    const [lastScrollY, setLastScrollY] = useState<number>(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+                // Scrolling down, hide nav
+                setShowStickyNav(false);
+            } else if (currentScrollY > 100 && currentScrollY < lastScrollY) {
+                // Scrolling up, show nav
+                setShowStickyNav(true);
+            }
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [lastScrollY]);
 
     return (
-        <header className="absolute left-0 z-20 right-0 px-10 pt-10 text-sm md:text-base">
+        <header
+            className={`fixed left-0 z-20 right-0 px-10 pt-10 text-sm md:text-base transition-transform duration-300 ${
+                showStickyNav ? 'translate-y-0' : '-translate-y-full'
+            }`}
+        >
             <div className="navigation py-4 px-10 md:py-6 md:px-20 relative flex justify-between items-center rounded-full">
                 <h1>
                     <Link href="/">
