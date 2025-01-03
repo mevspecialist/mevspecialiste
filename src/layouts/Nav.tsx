@@ -8,8 +8,8 @@ const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Services', href: '/Services' },
-    { name: 'Career', href: '/Career' },
+    { name: 'Services', href: '/services' },
+    { name: 'Career', href: '/career' },
     { name: 'Facility Hub', href: '/hub' },
 ];
 
