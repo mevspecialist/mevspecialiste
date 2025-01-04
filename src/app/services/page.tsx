@@ -1,5 +1,6 @@
 import React from 'react';
 import ServiceCard from '@/components/ServiceCard';
+import { PageBanner } from '@/components/PageBanner';
 
 const allServices: { title: string; content: string }[] = [
     {
@@ -67,18 +68,14 @@ const allServices: { title: string; content: string }[] = [
 const ServicesPage: React.FC = () => {
     return (
         <main className="px-10 md:px-32">
-            <section className="banner bg-[url('/images/services/services-banner.jpeg')] bg-cover bg-center relative px-10 md:px-40 -mx-10 md:-mx-32">
-                <div className="banner-content flex flex-col py-60 relative z-10 text-center">
-                    <h1 className="font-semibold">Services</h1>
-                    <p className="text-[#FDFDFD] md:w-2/3 mx-auto pt-4">
-                        Explore our wide range of services designed to meet your
+            <PageBanner
+                title="Services"
+                content="Explore our wide range of services designed to meet your
                         health and wellness needs. From preventive care to
                         specialized treatments, we are committed to delivering
-                        exceptional medical services for every stage of life.
-                    </p>
-                    {/* Add more content and components as needed */}
-                </div>
-            </section>
+                        exceptional medical services for every stage of life."
+                image="/images/services/services-banner.jpeg"
+            />
             <section className="py-20">
                 <header className="font-marcellus">Our Services</header>
                 <h2>Comprehensive Care Tailored for You</h2>
