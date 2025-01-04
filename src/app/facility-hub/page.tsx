@@ -49,13 +49,15 @@ const FacilityHub: React.FC = () => {
                             <h2>{facility.title}</h2>
                             <p>{facility.content}</p>
                         </div>
-                        <Image
-                            src={facility.image}
-                            alt={facility.title}
-                            width={500}
-                            height={300}
-                            className="rounded-3xl"
-                        />
+                        <div className="decorator relative rounded-3xl overflow-clip">
+                            <Image
+                                src={facility.image}
+                                alt={facility.title}
+                                width={500}
+                                height={300}
+                                className="w-full h-96 object-cover"
+                            />
+                        </div>
                     </div>
                 ))}
             </section>
