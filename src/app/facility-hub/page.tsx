@@ -45,43 +45,26 @@ const FacilityHub: React.FC = () => {
                 </div>
             </section>
             <section className="py-20">
-                {facilities.map((facility, index) =>
-                    index % 2 === 0 ? (
-                        <div
-                            key={index}
-                            className="grid grid-cols-1 items-center md:grid-cols-2 gap-14 md:py-20"
-                        >
-                            <Image
-                                src={facility.image}
-                                alt={facility.title}
-                                width={500}
-                                height={300}
-                                className="rounded-3xl"
-                            />
-                            <div key={index} className="py-10">
-                                <h2>{facility.title}</h2>
-                                <p>{facility.content}</p>
-                            </div>
+                {facilities.map((facility, index) => (
+                    <div
+                        key={index}
+                        className={`lg:flex justify-between items-center gap-14 lg:py-20 ${
+                            index % 2 === 0 ? 'lg:flex-row-reverse' : ''
+                        }`}
+                    >
+                        <div key={index} className="py-10 flex-1">
+                            <h2>{facility.title}</h2>
+                            <p>{facility.content}</p>
                         </div>
-                    ) : (
-                        <div
-                            key={index}
-                            className="grid grid-cols-1 items-center md:grid-cols-2 gap-14 md:py-20"
-                        >
-                            <div key={index} className="py-10">
-                                <h2>{facility.title}</h2>
-                                <p>{facility.content}</p>
-                            </div>
-                            <Image
-                                src={facility.image}
-                                alt={facility.title}
-                                width={500}
-                                height={300}
-                                className="rounded-3xl"
-                            />
-                        </div>
-                    )
-                )}
+                        <Image
+                            src={facility.image}
+                            alt={facility.title}
+                            width={500}
+                            height={300}
+                            className="rounded-3xl"
+                        />
+                    </div>
+                ))}
             </section>
         </main>
     );
