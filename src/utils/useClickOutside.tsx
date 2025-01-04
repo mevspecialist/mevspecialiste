@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 
 interface UseCloseElementOnClickProps {
-    ref: React.RefObject<HTMLElement> ;
+    ref: React.RefObject<HTMLElement | null> ;
     onClickOutside: () => void;
 }
 
