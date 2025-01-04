@@ -183,6 +183,31 @@ form label {
     font-weight: 500;
 }
 
+/* Facility Hub styles */
+.decorator::before,
+.decorator::after {
+    content: '';
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    bottom: -70px;
+    right: -70px;
+    border-radius: 50%;
+    background: #a9518b;
+}
+
+.decorator::before {
+    opacity: 0.4;
+}
+
+.decorator::after {
+    opacity: 0.3;
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    right: -100px;
+}
+
 /* Footer styles */
 footer {
     color: #f9f7fe;
