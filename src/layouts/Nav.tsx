@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaHamburger, FaTimes } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCloseElementOnClick } from '@/utils/useClickOutside';
+// import { useCloseElementOnClick } from '@/utils/useClickOutside';
 
 const navigation = [
     { name: 'Home', href: '/' },
@@ -21,7 +21,7 @@ const Nav: React.FC = () => {
     const [lastScrollY, setLastScrollY] = useState<number>(0);
 
     // close the menu when clicked outside of it
-    useCloseElementOnClick({ ref, onClickOutside: () => setShowMenu(false) });
+    // useCloseElementOnClick({ ref, onClickOutside: () => setShowMenu(false) });
 
     useEffect(() => {
         const handleScroll = () => {
