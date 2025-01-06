@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { FaCheckCircle, FaArrowDown } from 'react-icons/fa';
 import Link from 'next/link';
 import { Contact } from '@/components/Contact';
+import { DoctorCard } from '@/components/DoctorCard';
 
 const serviceOne: { title: string; image: string }[] = [
     { title: 'Operating Room', image: '/images/landingpage/why-choose-2.jpeg' },
@@ -285,22 +286,12 @@ export default function Home() {
                 </div>
                 <div className="py-10 flex flex-col lg:flex-row gap-4">
                     {doctors.map((doctor, index) => (
-                        <figure key={index} className="w-full">
-                            <Image
-                                src={doctor.image}
-                                alt={doctor.name}
-                                width={100}
-                                height={100}
-                                quality={100}
-                                className="w-full h-full rounded-xl object-cover"
-                            />
-                            <figcaption className="text-center py-4">
-                                <h4 className="text-xl mb-2">{doctor.name}</h4>
-                                <p className="font-marcellus text-xs">
-                                    {doctor.title}
-                                </p>
-                            </figcaption>
-                        </figure>
+                        <DoctorCard
+                            key={index}
+                            name={doctor.name}
+                            title={doctor.title}
+                            image={doctor.image}
+                        />
                     ))}
                 </div>
             </section>
