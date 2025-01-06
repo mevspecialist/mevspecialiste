@@ -6,6 +6,7 @@ import { FaCheckCircle, FaArrowDown } from 'react-icons/fa';
 import Link from 'next/link';
 import { Contact } from '@/components/Contact';
 import { DoctorCard } from '@/components/DoctorCard';
+import { BlogCard } from '@/components/BlogCard';
 
 const serviceOne: { title: string; image: string }[] = [
     { title: 'Operating Room', image: '/images/landingpage/why-choose-2.jpeg' },
@@ -317,26 +318,12 @@ export default function Home() {
                 </div>
                 <div className="grid lg:grid-cols-3 gap-4">
                     {blogPosts.map((post, index) => (
-                        <article key={index} className="py-4">
-                            <Image
-                                src={post.image}
-                                width={100}
-                                height={100}
-                                alt="image alt"
-                                className="w-full rounded-3xl object-cover inline-block"
-                                quality={100}
-                            />
-                            <Link href={`/blog/${post.title}`}>
-                                <div className="mt-6">
-                                    <h3 className="text-xl font-semibold text-blog-color capitalize mb-4">
-                                        {post.title}
-                                    </h3>
-                                    <p className="text-[#2F2F2F]">
-                                        {post.content}
-                                    </p>
-                                </div>
-                            </Link>
-                        </article>
+                        <BlogCard
+                            key={index}
+                            image={post.image}
+                            title={post.title}
+                            content={post.content}
+                        />
                     ))}
                 </div>
             </section>
