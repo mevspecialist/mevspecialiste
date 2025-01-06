@@ -14,6 +14,19 @@ const navigation = [
     { name: 'Facility Hub', href: '/facility-hub' },
 ];
 
+const ContactIcon: React.FC = () => {
+    return (
+        <div className="flex gap-4 ml-10 text-white">
+            <span className="w-10 h-10 bg-btn-color rounded-full flex items-center justify-center">
+                <FaPhoneAlt className="icon" />
+            </span>
+            <span className="w-10 h-10 bg-[#514A4A] rounded-full flex items-center justify-center">
+                <FaEnvelope className="icon" />
+            </span>
+        </div>
+    );
+};
+
 const Nav: React.FC = () => {
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const ref = useRef<HTMLElement>(null);
@@ -29,6 +42,7 @@ const Nav: React.FC = () => {
             if (currentScrollY > 100 && currentScrollY > lastScrollY) {
                 // Scrolling down, hide nav
                 setShowStickyNav(false);
+                setShowMenu(false);
             } else if (currentScrollY > 100 && currentScrollY < lastScrollY) {
                 // Scrolling up, show nav
                 setShowStickyNav(true);
@@ -50,7 +64,11 @@ const Nav: React.FC = () => {
                 showStickyNav ? 'translate-y-0' : '-translate-y-full'
             }`}
         >
-            <div className="navigation py-4 px-10 md:py-6 md:px-20 relative flex justify-between items-center rounded-full">
+            <div
+                className={`navigation py-4 px-10 md:py-6 md:px-20 relative flex justify-between items-center ${
+                    showMenu ? 'rounded-t-full' : 'rounded-full'
+                }`}
+            >
                 <h1>
                     <Link href="/">
                         <Image
@@ -71,14 +89,7 @@ const Nav: React.FC = () => {
                             </li>
                         ))}
                     </ul>
-                    <div className="flex gap-4 ml-10 text-white">
-                        <span className="w-10 h-10 bg-btn-color rounded-full flex items-center justify-center">
-                            <FaPhoneAlt className="icon" />
-                        </span>
-                        <span className="w-10 h-10 bg-[#514A4A] rounded-full flex items-center justify-center">
-                            <FaEnvelope className="icon" />
-                        </span>
-                    </div>
+                    <ContactIcon />
                 </nav>
 
                 {/* Mobile Navigation */}
@@ -89,12 +100,12 @@ const Nav: React.FC = () => {
                     {showMenu ? <FaTimes /> : <FaHamburger />}
                 </button>
                 {showMenu && (
-                    <nav className="navigation px-10 w-full lg:hidden absolute left-0 top-full">
+                    <nav className="navigation px-12 md:px-20 pb-10 pt-4 w-full lg:hidden absolute left-0 top-full rounded-b-[6rem]">
                         <ul>
                             {navigation.map((nav) => (
                                 <li
                                     key={nav.name}
-                                    className="mb-4 font-marcellus"
+                                    className="mb-6 font-marcellus"
                                 >
                                     <Link href={nav.href} className="uppercase">
                                         <span>{nav.name}</span>
@@ -102,10 +113,7 @@ const Nav: React.FC = () => {
                                 </li>
                             ))}
                         </ul>
-                        <div className="flex gap-4">
-                            <FaPhoneAlt />
-                            <FaEnvelope />
-                        </div>
+                        <ContactIcon />
                     </nav>
                 )}
             </div>
