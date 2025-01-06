@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Contact } from '@/components/Contact';
 import { DoctorCard } from '@/components/DoctorCard';
 import { BlogCard } from '@/components/BlogCard';
+import ServiceCard from '@/components/ServiceCard';
 
 const serviceOne: { title: string; image: string }[] = [
     { title: 'Operating Room', image: '/images/landingpage/why-choose-2.jpeg' },
@@ -225,9 +226,18 @@ export default function Home() {
                                     backgroundImage: `url(${service.image})`,
                                 }}
                             >
-                                <span className="relative z-10">
-                                    {service.title}
-                                </span>
+                                {index === serviceOne.length - 1 ? (
+                                    <Link
+                                        href="/services"
+                                        className="relative z-10"
+                                    >
+                                        {service.title}
+                                    </Link>
+                                ) : (
+                                    <span className="relative z-10">
+                                        {service.title}
+                                    </span>
+                                )}
                             </li>
                         ))}
                     </ul>
@@ -250,25 +260,21 @@ export default function Home() {
                         />
                     </div>
                     <div className="absolute bottom-2 self-center lg:static">
-                        <Button
-                            onClick={(): void => console.log('clicked')}
-                            label="Explore other services"
-                        />
+                        <Link
+                            href="/services"
+                            className="bg-btn-color text-white px-8 py-3 rounded-full font-light"
+                        >
+                            Explore other services
+                        </Link>
                     </div>
                 </div>
                 <div className="relative grid lg:grid-cols-3 gap-4 py-6">
                     {mainServices.map((service, index) => (
-                        <div
+                        <ServiceCard
                             key={index}
-                            className="px-10 py-10 text-xl bg-[#F8F8F8] rounded-xl hover:bg-hover-color hover:text-[#3C3C3C] transition-colors duration-200"
-                        >
-                            <h3>{service.title}</h3>
-                            <p className="py-2">{service.content}</p>
-                            {/* <span
-                                aria-hidden="true"
-                                className="inline-block w-10 h-10 bg-btn-color rounded-full absolute top-10"
-                            ></span> */}
-                        </div>
+                            title={service.title}
+                            content={service.content}
+                        />
                     ))}
                 </div>
             </section>
