@@ -110,7 +110,7 @@ export default function Home() {
     return (
         <main className="px-10 md:px-32">
             <article className="banner relative px-10 md:px-24 -mx-10 md:-mx-32">
-                <div className="banner-content flex flex-col py-40 relative z-10">
+                <div className="banner-content-home flex flex-col py-40 relative z-10">
                     <div className="order-2">
                         <h1 className="font-extralight font-marcellus text-4xl md:text-[4rem] md:leading-[87.42px] relative w-max">
                             Welcome to MEV <br /> Specialist Hospital
