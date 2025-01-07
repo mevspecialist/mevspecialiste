@@ -29,14 +29,16 @@ const AboutUs: React.FC = () => {
                 image="/images/doctors/doctors-banner.jpeg"
             />
             <section className="py-20">
-                <div className="bg-footer-bg px-10 rounded-2xl">
+                <div className="bg-footer-bg px-10 lg:px-20 lg:py-10 rounded-2xl">
                     {aboutUs.map((about, index) => (
-                        <div key={index} className="py-10 relative">
+                        <div key={index} className="py-10 relative border-b-[1px] last:border-none">
                             <div>
-                                <h3>{about.title}</h3>
-                                <p className='lg:w-3/4'>{about.content}</p>
+                                <h3 className="text-2xl lg:text-4xl mb-4">
+                                    {about.title}
+                                </h3>
+                                <p className="lg:w-3/4">{about.content}</p>
                             </div>
-                            <span className="absolute top-10 -right-2 lg:top-14 lg:right-10 text-white flex items-center justify-center bg-btn-color w-10 h-10 rounded-full">
+                            <span className="absolute top-10 -right-2 lg:top-10 lg:right-10 text-white flex items-center justify-center bg-btn-color w-10 h-10 rounded-full">
                                 <FaPlay />
                             </span>
                         </div>
