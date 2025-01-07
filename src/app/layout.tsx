@@ -30,7 +30,7 @@ export default function RootLayout({
             <body
                 className={`${manrope.variable} ${marcellus.variable} antialiased`}
             >
-                <div>
+                <div className="max-w-7xl mx-auto">
                     <Nav />
                     {children}
                     <FooterBanner />

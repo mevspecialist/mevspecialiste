@@ -60,7 +60,7 @@ const Nav: React.FC = () => {
     return (
         <header
             ref={ref}
-            className={`fixed left-0 z-20 right-0 px-10 pt-10 text-sm md:text-base transition-transform duration-300 ${
+            className={`max-w-7xl mx-auto fixed left-0 z-20 right-0 px-10 pt-10 text-sm md:text-base transition-transform duration-300 ${
                 showStickyNav ? 'translate-y-0' : '-translate-y-full'
             }`}
         >
