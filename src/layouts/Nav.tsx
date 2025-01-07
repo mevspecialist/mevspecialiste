@@ -7,7 +7,7 @@ import { useCloseElementOnClick } from '@/utils/useClickOutside';
 
 const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'About Us', href: '/about-us' },
     { name: 'Contact', href: '/contact' },
     { name: 'Services', href: '/services' },
     { name: 'Career', href: '/career' },

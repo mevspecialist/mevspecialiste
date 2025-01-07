@@ -177,10 +177,12 @@ export default function Home() {
                         technology and state-of-the-art Medical equipment.
                     </p>
                     <div className="w-max">
-                        <Button
-                            onClick={(): void => console.log('clicked')}
-                            label="More About Us"
-                        />
+                        <Link
+                            href="/about-us"
+                            className="bg-btn-color text-white px-8 py-3 rounded-full font-light"
+                        >
+                            More About Us
+                        </Link>
                     </div>
                 </div>
                 <div className="mt-6 relative">
