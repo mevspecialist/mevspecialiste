@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import Button from './Button';
 import {
     FaPhoneAlt,
@@ -41,6 +42,41 @@ const contactDetails: {
 ];
 
 export const Contact: React.FC = () => {
+    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        e.preventDefault();
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('loading');
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                const data = await response.json();
+                setErrorMessage(data.message || 'Failed to send message');
+                setStatus('error');
+            }
+        } catch (error) {
+            console.error(error);
+            setErrorMessage('Something went wrong. Please try again later.');
+            setStatus('error');
+        }
+    };
+
     return (
         <section className="py-20 lg:flex justify-between">
             <div className="lg:w-1/2 lg:mr-14">
@@ -71,38 +107,59 @@ export const Contact: React.FC = () => {
                     ))}
                 </div>
             </div>
-            <form className="homepage lg:w-1/2 bg-[#FFF2FB] p-10 rounded-3xl text-btn-color">
+            <form 
+                className="homepage lg:w-1/2 bg-[#FFF2FB] p-10 rounded-3xl text-btn-color" 
+                onSubmit={handleSubmit}
+            >
                 <div>
                     <label htmlFor="">Your Name</label>
                     <input
                         type="text"
-                        name=""
-                        id=""
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="Enter your name"
+                        className="w-full px-4 py-2 border rounded"
+                        required
                     />
                 </div>
                 <div>
                     <label htmlFor="">Your Email</label>
                     <input
                         type="text"
-                        name=""
-                        id=""
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder="Enter your email"
+                        className="w-full px-4 py-2 border rounded"
+                        required
                     />
                 </div>
                 <div>
                     <label htmlFor="">Your Message</label>
                     <textarea
-                        name=""
-                        id=""
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
                         placeholder="Enter your message"
                         rows={8}
+                        className="w-full px-4 py-2 border rounded"
+                        required
                     ></textarea>
                 </div>
                 <Button
                     onClick={(): void => console.log('clicked')}
-                    label="Send Message"
+                    label= {status === 'loading' ? 'Sending...' : 'Send Message'}
+                    disabled={status === 'loading'}
                 />
+                {status === 'success' && (
+                    <p className="mt-4 text-green-500">Message sent successfully!</p>
+                )}
+                {status === 'error' && (
+                    <p className="mt-4 text-red-500">{errorMessage}</p>
+                )}
             </form>
         </section>
     );
