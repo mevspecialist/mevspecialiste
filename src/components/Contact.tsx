@@ -8,6 +8,20 @@ import {
     FaClock,
     FaEnvelope,
 } from 'react-icons/fa';
+import { Notification, NotificationType } from './Notification';
+
+enum LoadingStatus {
+    idle,
+    loading,
+    success,
+    error,
+}
+
+interface FormData {
+    name: string;
+    email: string;
+    message: string;
+}
 
 const contactDetails: {
     title: string;
@@ -42,18 +56,24 @@ const contactDetails: {
 ];
 
 export const Contact: React.FC = () => {
-    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-    const [errorMessage, setErrorMessage] = useState('');
+    const [formData, setFormData] = useState<FormData>({
+        name: '',
+        email: '',
+        message: '',
+    });
+    const [status, setStatus] = useState<LoadingStatus>(LoadingStatus.idle);
+    const [message, setMessage] = useState('');
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
         e.preventDefault();
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setStatus('loading');
+        setStatus(LoadingStatus.loading);
 
         try {
             const response = await fetch('/api/contact', {
@@ -63,17 +83,18 @@ export const Contact: React.FC = () => {
             });
 
             if (response.ok) {
-                setStatus('success');
+                setStatus(LoadingStatus.success);
+                setMessage('Message sent successfully!');
                 setFormData({ name: '', email: '', message: '' });
             } else {
                 const data = await response.json();
-                setErrorMessage(data.message || 'Failed to send message');
-                setStatus('error');
+                setMessage(data.message || 'Failed to send message');
+                setStatus(LoadingStatus.error);
             }
         } catch (error) {
             console.error(error);
-            setErrorMessage('Something went wrong. Please try again later.');
-            setStatus('error');
+            setMessage('Something went wrong. Please try again later.');
+            setStatus(LoadingStatus.error);
         }
     };
 
@@ -107,8 +128,8 @@ export const Contact: React.FC = () => {
                     ))}
                 </div>
             </div>
-            <form 
-                className="homepage lg:w-1/2 bg-[#FFF2FB] p-10 rounded-3xl text-btn-color" 
+            <form
+                className="homepage relative lg:w-1/2 bg-[#FFF2FB] p-10 rounded-3xl text-btn-color"
                 onSubmit={handleSubmit}
             >
                 <div>
@@ -127,7 +148,7 @@ export const Contact: React.FC = () => {
                 <div>
                     <label htmlFor="">Your Email</label>
                     <input
-                        type="text"
+                        type="email"
                         id="email"
                         name="email"
                         value={formData.email}
@@ -151,14 +172,26 @@ export const Contact: React.FC = () => {
                 </div>
                 <Button
                     onClick={(): void => console.log('clicked')}
-                    label= {status === 'loading' ? 'Sending...' : 'Send Message'}
-                    disabled={status === 'loading'}
+                    label={
+                        status === LoadingStatus.loading
+                            ? 'Sending...'
+                            : 'Send Message'
+                    }
+                    disabled={status === LoadingStatus.loading}
                 />
-                {status === 'success' && (
-                    <p className="mt-4 text-green-500">Message sent successfully!</p>
+                {status === LoadingStatus.success && (
+                    <Notification
+                        type={NotificationType.success}
+                        message={message}
+                        onClose={() => setStatus(LoadingStatus.idle)}
+                    />
                 )}
-                {status === 'error' && (
-                    <p className="mt-4 text-red-500">{errorMessage}</p>
+                {status === LoadingStatus.error && (
+                    <Notification
+                        type={NotificationType.error}
+                        message={message}
+                        onClose={() => setStatus(LoadingStatus.idle)}
+                    />
                 )}
             </form>
         </section>

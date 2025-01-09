@@ -23,6 +23,15 @@ export default {
                 'hover-color': '#FFBBE8',
                 'blog-color': '#00264F',
             },
+            animation: {
+                fade: 'fadeOut 5s ease-out',
+            },
+            keyframes: {
+                fadeOut: {
+                    '0%': { opacity: '1' },
+                    '100%': { opacity: '0' },
+                },
+            },
         },
     },
     important: true,
