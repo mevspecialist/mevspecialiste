@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import Button from './Button';
 import {
     FaPhoneAlt,
@@ -7,6 +8,20 @@ import {
     FaClock,
     FaEnvelope,
 } from 'react-icons/fa';
+import { Notification, NotificationType } from './Notification';
+
+enum LoadingStatus {
+    idle,
+    loading,
+    success,
+    error,
+}
+
+interface FormData {
+    name: string;
+    email: string;
+    message: string;
+}
 
 const contactDetails: {
     title: string;
@@ -41,6 +56,48 @@ const contactDetails: {
 ];
 
 export const Contact: React.FC = () => {
+    const [formData, setFormData] = useState<FormData>({
+        name: '',
+        email: '',
+        message: '',
+    });
+    const [status, setStatus] = useState<LoadingStatus>(LoadingStatus.idle);
+    const [message, setMessage] = useState('');
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        e.preventDefault();
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus(LoadingStatus.loading);
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setStatus(LoadingStatus.success);
+                setMessage('Message sent successfully!');
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                const data = await response.json();
+                setMessage(data.message || 'Failed to send message');
+                setStatus(LoadingStatus.error);
+            }
+        } catch (error) {
+            console.error(error);
+            setMessage('Something went wrong. Please try again later.');
+            setStatus(LoadingStatus.error);
+        }
+    };
+
     return (
         <section className="py-20 lg:flex justify-between">
             <div className="lg:w-1/2 lg:mr-14">
@@ -71,38 +128,71 @@ export const Contact: React.FC = () => {
                     ))}
                 </div>
             </div>
-            <form className="homepage lg:w-1/2 bg-[#FFF2FB] p-10 rounded-3xl text-btn-color">
+            <form
+                className="homepage relative lg:w-1/2 bg-[#FFF2FB] p-10 rounded-3xl text-btn-color"
+                onSubmit={handleSubmit}
+            >
                 <div>
                     <label htmlFor="">Your Name</label>
                     <input
                         type="text"
-                        name=""
-                        id=""
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="Enter your name"
+                        className="w-full px-4 py-2 border rounded"
+                        required
                     />
                 </div>
                 <div>
                     <label htmlFor="">Your Email</label>
                     <input
-                        type="text"
-                        name=""
-                        id=""
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder="Enter your email"
+                        className="w-full px-4 py-2 border rounded"
+                        required
                     />
                 </div>
                 <div>
                     <label htmlFor="">Your Message</label>
                     <textarea
-                        name=""
-                        id=""
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
                         placeholder="Enter your message"
                         rows={8}
+                        className="w-full px-4 py-2 border rounded"
+                        required
                     ></textarea>
                 </div>
                 <Button
                     onClick={(): void => console.log('clicked')}
-                    label="Send Message"
+                    label={
+                        status === LoadingStatus.loading
+                            ? 'Sending...'
+                            : 'Send Message'
+                    }
+                    disabled={status === LoadingStatus.loading}
                 />
+                {status === LoadingStatus.success && (
+                    <Notification
+                        type={NotificationType.success}
+                        message={message}
+                        onClose={() => setStatus(LoadingStatus.idle)}
+                    />
+                )}
+                {status === LoadingStatus.error && (
+                    <Notification
+                        type={NotificationType.error}
+                        message={message}
+                        onClose={() => setStatus(LoadingStatus.idle)}
+                    />
+                )}
             </form>
         </section>
     );
