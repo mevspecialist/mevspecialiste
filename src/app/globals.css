@@ -192,7 +192,8 @@ form label {
     font-weight: 500;
 }
 
-.star::after {
+.star::after,
+.star::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -211,6 +212,20 @@ form label {
         /* Lower-left */ 0% 50%,
         /* Left */ 39% 35% /* Upper-left */
     );
+}
+
+.star::after {
+    transform: translate(-50%, -50%) rotate(45deg); /* Rotate the second star */
+    transform-origin: center;
+}
+
+.starwrapper:hover .star::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+    color: #3C3C3C;
+}
+
+.starwrapper:hover p {
+    color: #3C3C3C;
 }
 
 /* Facility Hub styles */
