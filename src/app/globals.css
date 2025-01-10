@@ -192,6 +192,27 @@ form label {
     font-weight: 500;
 }
 
+.star::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    clip-path: polygon(
+        50% 0%,
+        /* Top */ 61% 35%,
+        /* Upper-right */ 100% 50%,
+        /* Right */ 61% 65%,
+        /* Lower-right */ 50% 100%,
+        /* Bottom */ 39% 65%,
+        /* Lower-left */ 0% 50%,
+        /* Left */ 39% 35% /* Upper-left */
+    );
+}
+
 /* Facility Hub styles */
 .decorator::before,
 .decorator::after {

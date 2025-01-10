@@ -15,7 +15,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, content }) => {
             <p className="py-2 text-[13px] leading-5">{content}</p>
             <span
                 aria-hidden="true"
-                className="inline-block w-10 h-10 bg-btn-color rounded-full absolute top-7"
+                className="star inline-block w-10 h-10 bg-btn-color rounded-full absolute top-7"
             ></span>
         </div>
     );
