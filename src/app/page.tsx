@@ -163,7 +163,7 @@ export default function Home() {
             </article>
             <section className="py-36 lg:grid grid-cols-2 gap-36">
                 <div className="flex flex-col gap-4">
-                    <header className="font-marcellus">
+                    <header className="header-star font-marcellus">
                         MEV SPECIALIST HOSPITAL
                     </header>
                     <h2 className="text-[42px] leading-[67.2px] font-normal">
@@ -246,7 +246,7 @@ export default function Home() {
                 </div>
             </section>
             <section className="py-20 relative">
-                <header className="font-marcellus uppercase text-center lg:text-left mb-6">
+                <header className="header-star font-marcellus uppercase text-center lg:text-left mb-6">
                     Our Services
                 </header>
                 <div className="flex flex-col md:flex-row justify-between md:items-baseline">
@@ -282,7 +282,7 @@ export default function Home() {
             </section>
             <Contact />
             <section className="py-20">
-                <header className="font-marcellus uppercase text-center lg:text-left">
+                <header className="header-star font-marcellus uppercase text-center lg:text-left">
                     our team
                 </header>
                 <div className="text-center lg:text-left">
@@ -337,7 +337,7 @@ export default function Home() {
             </section>
             <section className="py-20 lg:px-4 lg:flex gap-20 justify-between">
                 <div className="lg:w-[50%]">
-                    <header className="font-marcellus uppercase text-center lg:text-left">
+                    <header className="header-star font-marcellus uppercase text-center lg:text-left">
                         faq
                     </header>
                     <div>

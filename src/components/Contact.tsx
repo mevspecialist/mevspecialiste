@@ -101,7 +101,7 @@ export const Contact: React.FC = () => {
     return (
         <section className="py-20 lg:flex justify-between">
             <div className="lg:w-1/2 lg:mr-14">
-                <header className="font-marcellus uppercase text-center lg:text-left">
+                <header className="header-star font-marcellus uppercase text-center lg:text-left">
                     Get in Touch
                 </header>
                 <div className="py-6 text-center lg:text-left">

@@ -212,12 +212,53 @@ span.hamburger::after {
     height: inherit;
     background-color: #fff;
     border-radius: 14px;
-} 
+}
 
 span.hamburger::after {
     top: -6px;
     right: 0;
     width: 24px;
+}
+
+/* Star symbol design for header */
+/* Styles for screen widths 1024px and larger */
+@media (min-width: 0px) and (max-width: 1023px) {
+    .header-star {
+        width: max-content;
+        margin-inline: auto;
+    }
+}
+
+.header-star {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.header-star::before,
+.header-star::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    width: 15px;
+    height: 15px;
+    background-color: #a9518b;
+    transform: translate(-50%, -50%);
+    clip-path: polygon(
+        50% 0%,
+        /* Top */ 61% 35%,
+        /* Upper-right */ 100% 50%,
+        /* Right */ 61% 65%,
+        /* Lower-right */ 50% 100%,
+        /* Bottom */ 39% 65%,
+        /* Lower-left */ 0% 50%,
+        /* Left */ 39% 35% /* Upper-left */
+    );
+}
+
+.header-star::after {
+    transform: translate(-50%, -50%) rotate(45deg); /* Rotate the second star */
+    transform-origin: center;
 }
 
 /* Star symbol design for services */

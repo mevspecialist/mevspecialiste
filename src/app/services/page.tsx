@@ -77,7 +77,7 @@ const ServicesPage: React.FC = () => {
                 image="/images/services/services-banner.jpeg"
             />
             <section className="py-20">
-                <header className="font-marcellus">Our Services</header>
+                <header className="header-star font-marcellus">Our Services</header>
                 <h2>Comprehensive Care Tailored for You</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
                     {allServices.map((service) => (

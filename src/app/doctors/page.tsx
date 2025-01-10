@@ -35,7 +35,7 @@ const Doctors: React.FC = () => {
             />
             <section className="py-20">
                 <div className="text-center lg:text-left">
-                    <header className="font-marcellus uppercase">
+                    <header className="header-star font-marcellus uppercase">
                         Our team
                     </header>
                     <h2 className="text-2xl font-semibold py-4 lg:text-inherit ">Meet Our Medical Specialists</h2>
