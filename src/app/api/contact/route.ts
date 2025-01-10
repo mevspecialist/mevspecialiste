@@ -25,7 +25,7 @@ export async function POST(req: Request): Promise<NextResponse> {
         const mailOptions = {
             from: process.env.SMTP_USER,
             to: process.env.TO_EMAIL,
-            subject: `New Contact Form Submission from ${name}`,
+            subject: `New Contact Form Submission from MevSpecialist Website`,
             text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
             html: `
                 <p><strong>Name:</strong> ${name}</p>
