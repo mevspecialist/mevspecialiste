@@ -17,12 +17,18 @@ const navigation = [
 const ContactIcon: React.FC = () => {
     return (
         <div className="flex gap-4 ml-10 text-white">
-            <span className="w-10 h-10 bg-btn-color rounded-full flex items-center justify-center">
+            <Link
+                href="tel:+2348063583111"
+                className="w-10 h-10 bg-btn-color rounded-full flex items-center justify-center"
+            >
                 <FaPhoneAlt className="icon" />
-            </span>
-            <span className="w-10 h-10 bg-[#514A4A] rounded-full flex items-center justify-center">
+            </Link>
+            <Link
+                href="mailto:mevspecialist4@gmail.com"
+                className="w-10 h-10 bg-[#514A4A] rounded-full flex items-center justify-center"
+            >
                 <FaEnvelope className="icon" />
-            </span>
+            </Link>
         </div>
     );
 };
