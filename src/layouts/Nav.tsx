@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { FaPhoneAlt, FaEnvelope, FaHamburger, FaTimes } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaTimes } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCloseElementOnClick } from '@/utils/useClickOutside';
@@ -76,6 +76,7 @@ const Nav: React.FC = () => {
                             height={150}
                             src="/mev-logo-text.png"
                             alt="mevspecialist Logo"
+                            className="w-32"
                         />
                     </Link>
                 </h1>
@@ -95,18 +96,19 @@ const Nav: React.FC = () => {
                 {/* Mobile Navigation */}
                 <button
                     onClick={() => setShowMenu(!showMenu)}
-                    className="absolute lg:hidden top-1/2 -translate-y-1/2 right-12 text-2xl text-white"
+                    className="flex justify-center items-center absolute lg:hidden top-1/2 w-[30px] h-[20px] -translate-y-1/2 right-12 text-2xl text-white"
                 >
-                    {showMenu ? <FaTimes /> : <FaHamburger />}
+                    {showMenu ? (
+                        <FaTimes />
+                    ) : (
+                        <span className="hamburger" aria-hidden="true"></span>
+                    )}
                 </button>
                 {showMenu && (
                     <nav className="navigation px-12 md:px-20 pb-10 pt-4 w-full lg:hidden absolute left-0 top-full rounded-b-[6rem]">
                         <ul>
                             {navigation.map((nav) => (
-                                <li
-                                    key={nav.name}
-                                    className="mb-6 font-marcellus"
-                                >
+                                <li key={nav.name} className="mb-6 font-marcellus">
                                     <Link href={nav.href} className="uppercase">
                                         <span>{nav.name}</span>
                                     </Link>

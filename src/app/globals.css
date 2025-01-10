@@ -192,6 +192,35 @@ form label {
     font-weight: 500;
 }
 
+/* Hamburger design */
+span.hamburger {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 14px;
+    pointer-events: none;
+}
+
+span.hamburger::before,
+span.hamburger::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    width: 12px;
+    height: inherit;
+    background-color: #fff;
+    border-radius: 14px;
+} 
+
+span.hamburger::after {
+    top: -6px;
+    right: 0;
+    width: 24px;
+}
+
+/* Star symbol design for services */
 .star::after,
 .star::before {
     content: '';
@@ -221,11 +250,11 @@ form label {
 
 .starwrapper:hover .star::after {
     transform: translate(-50%, -50%) rotate(0deg);
-    color: #3C3C3C;
+    color: #3c3c3c;
 }
 
 .starwrapper:hover p {
-    color: #3C3C3C;
+    color: #3c3c3c;
 }
 
 /* Facility Hub styles */
