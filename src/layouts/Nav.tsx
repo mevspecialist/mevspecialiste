@@ -5,13 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useCloseElementOnClick } from '@/utils/useClickOutside';
 
-const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about-us' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Services', href: '/services' },
-    { name: 'Career', href: '/career' },
-    { name: 'Facility Hub', href: '/facility-hub' },
+const navigation: { name: string; href: string; hasSubmenu: boolean }[] = [
+    { name: 'Home', href: '/', hasSubmenu: false },
+    { name: 'About Us', href: '/about-us', hasSubmenu: true },
+    { name: 'Contact', href: '/contact', hasSubmenu: false },
+    { name: 'Services', href: '/services', hasSubmenu: false },
+    { name: 'Career', href: '/career', hasSubmenu: false },
+    { name: 'Facility Hub', href: '/facility-hub', hasSubmenu: false },
 ];
 
 const ContactIcon: React.FC = () => {
@@ -89,10 +89,20 @@ const Nav: React.FC = () => {
                 <nav className="hidden lg:flex items-center">
                     <ul className="flex justify-evenly gap-8 font-marcellus border-r-2 pr-6">
                         {navigation.map((nav) => (
-                            <li key={nav.name}>
+                            <li key={nav.name} className="nav-list group">
                                 <Link href={nav.href} className="uppercase">
                                     <span>{nav.name}</span>
                                 </Link>
+
+                                {nav.hasSubmenu && (
+                                    <ul className="absolute left-0 hidden pt-1 group-hover:block">
+                                        <li>
+                                            <Link href="/doctors" className="uppercase">
+                                                Doctors
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                )}
                             </li>
                         ))}
                     </ul>

@@ -70,6 +70,20 @@ p {
     color: #909090;
 }
 
+/* Navigation link border style */
+li.nav-list {
+    position: relative;
+}
+
+li.nav-list:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border: 1px solid #a9518b;
+}
+
 /* Banner header styles */
 .banner {
     background-image: url('/banner-image.jpeg');
