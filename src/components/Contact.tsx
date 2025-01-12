@@ -1,16 +1,10 @@
 'use client';
 import React, { useState } from 'react';
 import Button from './Button';
-import {
-    FaPhoneAlt,
-    FaMapMarker,
-    FaWhatsapp,
-    FaClock,
-    FaEnvelope,
-} from 'react-icons/fa';
+import { FaPhoneAlt, FaMapMarker, FaWhatsapp, FaClock, FaEnvelope } from 'react-icons/fa';
 import { Notification, NotificationType } from './Notification';
 
-enum LoadingStatus {
+export enum LoadingStatus {
     idle,
     loading,
     success,
@@ -64,10 +58,7 @@ export const Contact: React.FC = () => {
     const [status, setStatus] = useState<LoadingStatus>(LoadingStatus.idle);
     const [message, setMessage] = useState('');
 
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
-        e.preventDefault();
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
@@ -106,10 +97,7 @@ export const Contact: React.FC = () => {
                 </header>
                 <div className="py-6 text-center lg:text-left">
                     <h2>We’d Love to Hear From You</h2>
-                    <p>
-                        For urgent care, simply call our 24 hours emergency
-                        hotlines
-                    </p>
+                    <p>For urgent care, simply call our 24 hours emergency hotlines</p>
                 </div>
                 <div>
                     {contactDetails.map((contact, index) => (
@@ -172,11 +160,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <Button
                     onClick={(): void => console.log('clicked')}
-                    label={
-                        status === LoadingStatus.loading
-                            ? 'Sending...'
-                            : 'Send Message'
-                    }
+                    label={status === LoadingStatus.loading ? 'Sending...' : 'Send Message'}
                     disabled={status === LoadingStatus.loading}
                 />
                 {status === LoadingStatus.success && (
