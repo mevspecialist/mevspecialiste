@@ -10,7 +10,7 @@ const navigation: { name: string; href: string; hasSubmenu: boolean }[] = [
     { name: 'About Us', href: '/about-us', hasSubmenu: true },
     { name: 'Contact', href: '/contact', hasSubmenu: false },
     { name: 'Services', href: '/services', hasSubmenu: false },
-    // { name: 'Career', href: '/career', hasSubmenu: false },
+    { name: 'Career', href: '/career', hasSubmenu: false },
     { name: 'Facility Hub', href: '/facility-hub', hasSubmenu: false },
 ];
 

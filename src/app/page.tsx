@@ -1,6 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-import Button from '@/components/Button';
 import Image from 'next/image';
 import { FaCheckCircle, FaArrowDown } from 'react-icons/fa';
 import Link from 'next/link';
@@ -156,6 +155,7 @@ export default function Home() {
                     </div>
                 </div>
             </article>
+            {/* Brief about us */}
             <section className="py-36 lg:grid grid-cols-2 gap-36">
                 <div className="flex flex-col gap-4">
                     <header className="header-star font-marcellus">MEV SPECIALIST HOSPITAL</header>
@@ -193,6 +193,7 @@ export default function Home() {
                     </span>
                 </div>
             </section>
+            {/* service introduction */}
             <section className="service relative bg-black py-10 px-6 -mx-10 md:-mx-32">
                 <div className="rounded-3xl text-center text-white py-24">
                     <div className="relative z-10 px-10">
@@ -228,6 +229,7 @@ export default function Home() {
                     </ul>
                 </div>
             </section>
+            {/* Main services */}
             <section className="py-20 relative">
                 <header className="header-star font-marcellus uppercase text-center lg:text-left mb-6">
                     Our Services
@@ -257,6 +259,7 @@ export default function Home() {
                 </div>
             </section>
             <Contact />
+            {/* Team Doctors */}
             <section className="py-20">
                 <header className="header-star font-marcellus uppercase text-center lg:text-left">
                     our team
@@ -276,6 +279,7 @@ export default function Home() {
                     ))}
                 </div>
             </section>
+            {/* Blog */}
             <section className="py-28">
                 <div className="pb-6 flex flex-col justify-between text-center lg:text-left lg:flex-row ">
                     <div>
@@ -306,6 +310,7 @@ export default function Home() {
                     ))}
                 </div>
             </section>
+            {/* FAQ */}
             <section className="py-20 lg:px-4 lg:flex gap-20 justify-between">
                 <div className="lg:w-[50%]">
                     <header className="header-star font-marcellus uppercase text-center lg:text-left">
