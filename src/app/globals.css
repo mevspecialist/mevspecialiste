@@ -190,7 +190,9 @@ form.homepage > div {
 }
 
 form.homepage input,
-form.homepage textarea {
+form.homepage textarea,
+form.booking input,
+form.booking textarea {
     padding: 0.7rem 1rem;
     border-radius: 8px;
     border: 1px solid #e2e2e2;
@@ -335,6 +337,21 @@ span.hamburger::after {
     height: 300px;
     bottom: -100px;
     right: -100px;
+}
+
+/* Booking/Appointment styles */
+form.booking .form-wrapper {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+form.booking .form-wrapper input,
+form.booking .form-wrapper textarea {
+    background-color: #f2f2f2;
+    border-radius: 30px;
+    border: 1px solid #000;
 }
 
 /* Footer styles */

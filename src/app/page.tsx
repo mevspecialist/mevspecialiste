@@ -8,6 +8,7 @@ import { Contact } from '@/components/Contact';
 import { DoctorCard } from '@/components/DoctorCard';
 import { BlogCard } from '@/components/BlogCard';
 import ServiceCard from '@/components/ServiceCard';
+import { AppointmentLink } from '@/components/AppointmentLink';
 
 const serviceOne: { title: string; image: string }[] = [
     { title: 'Operating Room', image: '/images/landingpage/why-choose-2.jpeg' },
@@ -97,8 +98,7 @@ const blogPosts: { title: string; image: string; content: string }[] = [
     {
         title: 'Lifestyle Changes For Cancer Prevention: A Journey Towards Wellness',
         image: '/images/landingpage/blog-2.jpeg',
-        content:
-            'Lifestyle Changes For Cancer Prevention: A Journey Towards Wellness',
+        content: 'Lifestyle Changes For Cancer Prevention: A Journey Towards Wellness',
     },
     {
         title: 'The Diabetes Fight: How To Manage Your Blood Sugar Levels',
@@ -122,10 +122,7 @@ export default function Home() {
                             5 star one stop facility providing <br />
                             Comprehensive solution to most Health care needs
                         </p>
-                        <Button
-                            onClick={() => console.log('Button clicked')}
-                            label="Schedule Appointment"
-                        />
+                        <AppointmentLink />
                     </div>
                     <div className="flex flex-col md:flex-row justify-between py-10 order-1 font-light">
                         <span className="uppercase font-marcellus order-2 md:order-none mt-6 md:mt-0">
@@ -153,28 +150,23 @@ export default function Home() {
                         </div>
                         <p className="text-white order-1 text-center md:text-left md:relative top-40">
                             {' '}
-                            <span className="text-btn-color font-marcellus mr-1">
-                                5/5
-                            </span>{' '}
-                            Rating From Our Clients
+                            <span className="text-btn-color font-marcellus mr-1">5/5</span> Rating
+                            From Our Clients
                         </p>
                     </div>
                 </div>
             </article>
             <section className="py-36 lg:grid grid-cols-2 gap-36">
                 <div className="flex flex-col gap-4">
-                    <header className="header-star font-marcellus">
-                        MEV SPECIALIST HOSPITAL
-                    </header>
+                    <header className="header-star font-marcellus">MEV SPECIALIST HOSPITAL</header>
                     <h2 className="text-[42px] leading-[67.2px] font-normal">
                         Excellent Healthcare Service Delivery
                     </h2>
                     <p className="text-pry-text-color-2">
-                        This facility was setup as a Tertiary centre with
-                        Multiple Specialities, Mev Specialist Hospital has been
-                        established to deliver excellent service in the Medical
-                        field, with all departments supported by the latest
-                        technology and state-of-the-art Medical equipment.
+                        This facility was setup as a Tertiary centre with Multiple Specialities, Mev
+                        Specialist Hospital has been established to deliver excellent service in the
+                        Medical field, with all departments supported by the latest technology and
+                        state-of-the-art Medical equipment.
                     </p>
                     <div className="w-max">
                         <Link
@@ -195,9 +187,8 @@ export default function Home() {
                         quality={100}
                     />
                     <span className="absolute -right-8 w-48 -top-10 text-[8px] leading-3 py-6 px-10 lg:top-10 lg:w-2/3 lg:-left-28 text-[#3D4195] lg:text-[14px] lg:leading-[19.5px] bg-white lg:px-6 lg:py-10 border-[1px] border-btn-color rounded-full font-marcellus">
-                        Mev Specialist Hospital is a 5 star one stop facility
-                        providing Comprehensive solution to most Health care
-                        needs.
+                        Mev Specialist Hospital is a 5 star one stop facility providing
+                        Comprehensive solution to most Health care needs.
                         <FaCheckCircle className="absolute z-20 -top-4 left-4 text-btn-color w-10 h-10" />
                     </span>
                 </div>
@@ -209,13 +200,10 @@ export default function Home() {
                             Why Choose Our Medical Services
                         </h2>
                         <p className="text-white py-10">
-                            MEV has excellent technology right on site to meet
-                            the needs of our obstetrical/gynecological patients
+                            MEV has excellent technology right on site to meet the needs of our
+                            obstetrical/gynecological patients
                         </p>
-                        <Button
-                            onClick={(): void => console.log('clicked')}
-                            label="Schedule Appointment"
-                        />
+                        <AppointmentLink />
                     </div>
                 </div>
                 <div className="pt-10">
@@ -229,16 +217,11 @@ export default function Home() {
                                 }}
                             >
                                 {index === serviceOne.length - 1 ? (
-                                    <Link
-                                        href="/services"
-                                        className="relative z-10"
-                                    >
+                                    <Link href="/services" className="relative z-10">
                                         {service.title}
                                     </Link>
                                 ) : (
-                                    <span className="relative z-10">
-                                        {service.title}
-                                    </span>
+                                    <span className="relative z-10">{service.title}</span>
                                 )}
                             </li>
                         ))}
@@ -253,13 +236,10 @@ export default function Home() {
                     <div className="text-center lg:text-left">
                         <h2>Services We Offer</h2>
                         <p className="pt-6 pb-4 lg:w-1/2">
-                            The hospital offers a calm ambience to help you
-                            recover from the discomfort that comes with ailment
+                            The hospital offers a calm ambience to help you recover from the
+                            discomfort that comes with ailment
                         </p>
-                        <Button
-                            onClick={(): void => console.log('clicked')}
-                            label="Schedule Appointment"
-                        />
+                        <AppointmentLink />
                     </div>
                     <div className="absolute bottom-2 self-center lg:static">
                         <Link
@@ -272,11 +252,7 @@ export default function Home() {
                 </div>
                 <div className="relative grid lg:grid-cols-3 gap-4 py-6">
                     {mainServices.map((service, index) => (
-                        <ServiceCard
-                            key={index}
-                            title={service.title}
-                            content={service.content}
-                        />
+                        <ServiceCard key={index} title={service.title} content={service.content} />
                     ))}
                 </div>
             </section>
@@ -286,12 +262,8 @@ export default function Home() {
                     our team
                 </header>
                 <div className="text-center lg:text-left">
-                    <h2 className="text-2xl font-semibold py-4">
-                        Meet Our Medical Specialists
-                    </h2>
-                    <p>
-                        Our Doctors are well trained, licensed and experienced
-                    </p>
+                    <h2 className="text-2xl font-semibold py-4">Meet Our Medical Specialists</h2>
+                    <p>Our Doctors are well trained, licensed and experienced</p>
                 </div>
                 <div className="py-10 flex flex-col lg:flex-row gap-4">
                     {doctors.map((doctor, index) => (
@@ -311,8 +283,7 @@ export default function Home() {
                             Explore Our Blog Posts
                         </h2>
                         <p className="py-4">
-                            Get updates on latest news, health and lifestyle
-                            tips
+                            Get updates on latest news, health and lifestyle tips
                         </p>
                     </div>
                     <div>
@@ -341,21 +312,16 @@ export default function Home() {
                         faq
                     </header>
                     <div>
-                        <h2 className="text-center lg:text-left">
-                            Your Questions Answered
-                        </h2>
+                        <h2 className="text-center lg:text-left">Your Questions Answered</h2>
                         <div className="pt-6 pb-10">
                             {faq.map((question, index) => (
                                 <div key={index} className="py-2">
                                     <button
                                         onClick={() =>
-                                            setShowFaQ((prev) =>
-                                                prev === index ? 0 : index
-                                            )
+                                            setShowFaQ((prev) => (prev === index ? 0 : index))
                                         }
                                         className={`relative font-semibold text-left w-full px-6 py-3 bg-[#F8F8F8] hover:bg-hover-color rounded-2xl ${
-                                            showFaQ === index &&
-                                            'bg-hover-color'
+                                            showFaQ === index && 'bg-hover-color'
                                         }`}
                                     >
                                         {question.question}
@@ -368,9 +334,7 @@ export default function Home() {
                                     </button>
                                     <p
                                         className={`px-4 pt-4 text-sm overflow-hidden transition-[max-height] duration-500 linear ${
-                                            showFaQ === index
-                                                ? 'max-h-56'
-                                                : 'max-h-0'
+                                            showFaQ === index ? 'max-h-56' : 'max-h-0'
                                         }`}
                                     >
                                         {question.answer}

@@ -8,7 +8,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({
-    onClick,
+    onClick = () => console.log('clicked'),
     label,
     disabled = false,
 }) => {

@@ -12,6 +12,7 @@ import {
     FaMapMarker,
 } from 'react-icons/fa';
 import { IconType } from 'react-icons';
+import { AppointmentLink } from '@/components/AppointmentLink';
 
 const socialLinks: { name: string; href: string; icon: IconType }[] = [
     { name: 'Facebook', href: '/', icon: FaFacebook },
@@ -35,17 +36,11 @@ export const FooterBanner: React.FC = () => {
     return (
         <section className="footer-banner relative bg-[url('/footer-banner-lg.jpeg')] w-full bg-cover bg-center text-center py-40 lg:py-60">
             <div className="relative z-10">
-                <header className="font-marcellus uppercase text-white">
-                    Start Your Journey
-                </header>
+                <header className="font-marcellus uppercase text-white">Start Your Journey</header>
                 <p className="text-white text-xl lg:text-4xl py-6">
-                    We believe in affordable <br></br> specialty healthcare for
-                    all.
+                    We believe in affordable <br></br> specialty healthcare for all.
                 </p>
-                <Button
-                    onClick={() => console.log('Button clicked')}
-                    label="Schedule Appointment"
-                />
+                <AppointmentLink />
             </div>
         </section>
     );
@@ -57,17 +52,11 @@ const Footer: React.FC = () => {
             <div className="relative flex flex-col md:flex-row justify-between gap-8 pb-6">
                 <div className="md:w-1/3">
                     <Link href="/">
-                        <Image
-                            src="/mev-logo-text.png"
-                            width={200}
-                            height={200}
-                            alt="Logo"
-                        />
+                        <Image src="/mev-logo-text.png" width={200} height={200} alt="Logo" />
                     </Link>
                     <p className="text-left my-6 font-light">
-                        Mev Specialist Hospital is renowned at home and abroad
-                        for Medical excellence and attracts world-class
-                        specialist Doctors and Surgeons.
+                        Mev Specialist Hospital is renowned at home and abroad for Medical
+                        excellence and attracts world-class specialist Doctors and Surgeons.
                     </p>
                     <ul className="flex gap-4">
                         {socialLinks.map((link) => (
@@ -129,9 +118,7 @@ const Footer: React.FC = () => {
                     Copyright &copy; 2024 {''} Mevspecialist Hospital Abuja{' '}
                 </p>
                 <p className="text-[#232323] text-[14px] flex gap-4">
-                    <span className="border-r-[1px] border-[#232323] pr-4">
-                        Terms of Use
-                    </span>
+                    <span className="border-r-[1px] border-[#232323] pr-4">Terms of Use</span>
                     <span>Privacy Policy</span>
                 </p>
             </div>

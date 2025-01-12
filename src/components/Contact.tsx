@@ -4,7 +4,7 @@ import Button from './Button';
 import { FaPhoneAlt, FaMapMarker, FaWhatsapp, FaClock, FaEnvelope } from 'react-icons/fa';
 import { Notification, NotificationType } from './Notification';
 
-enum LoadingStatus {
+export enum LoadingStatus {
     idle,
     loading,
     success,
