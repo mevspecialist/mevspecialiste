@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { Contact } from '@/components/Contact';
 import { PageBanner } from '@/components/PageBanner';
 import { AppointmentPage } from '@/components/Appointment';
@@ -53,4 +53,10 @@ const ContactPage: React.FC = () => {
     );
 };
 
-export default ContactPage;
+const ContactPageWithSuspense: React.FC = () => (
+    <Suspense fallback={<div>Loading...</div>}>
+        <ContactPage />
+    </Suspense>
+);
+
+export default ContactPageWithSuspense;
