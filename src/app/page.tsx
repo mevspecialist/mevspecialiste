@@ -121,7 +121,9 @@ export default function Home() {
                             5 star one stop facility providing <br />
                             Comprehensive solution to most Health care needs
                         </p>
-                        <AppointmentLink />
+                        <div className="mb-6 md:my-0">
+                            <AppointmentLink />
+                        </div>
                     </div>
                     <div className="flex flex-col md:flex-row justify-between py-10 order-1 font-light">
                         <span className="uppercase font-marcellus order-2 md:order-none mt-6 md:mt-0">
@@ -168,7 +170,7 @@ export default function Home() {
                         Medical field, with all departments supported by the latest technology and
                         state-of-the-art Medical equipment.
                     </p>
-                    <div className="w-max">
+                    <div className="w-max my-4">
                         <Link
                             href="/about-us"
                             className="bg-btn-color text-white px-8 py-3 rounded-full font-light"
@@ -241,7 +243,9 @@ export default function Home() {
                             The hospital offers a calm ambience to help you recover from the
                             discomfort that comes with ailment
                         </p>
-                        <AppointmentLink />
+                        <div className="my-4">
+                            <AppointmentLink />
+                        </div>
                     </div>
                     <div className="absolute bottom-2 self-center lg:static">
                         <Link
