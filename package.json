@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@strapi/blocks-react-renderer": "^1.0.1",
     "googleapis": "^144.0.0",
     "next": "15.1.2",
     "nodemailer": "^6.9.16",
