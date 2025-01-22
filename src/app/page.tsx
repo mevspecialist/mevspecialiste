@@ -99,7 +99,7 @@ export default function Home() {
                 populate: '*',
                 'pagination[limit]': 3,
             });
-            const posts = result.data as Post[];
+            const posts = result?.data as Post[];
             setPosts(posts);
         };
         getPosts();
@@ -300,7 +300,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="grid lg:grid-cols-3 gap-6">
-                    {posts.map((post: Post) => (
+                    {posts?.map((post: Post) => (
                         <BlogCard key={post.id} post={post} />
                     ))}
                 </div>

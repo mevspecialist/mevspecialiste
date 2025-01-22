@@ -37,7 +37,7 @@ export const BlogCard: React.FC<PostCardProps> = ({ post }) => {
                     <span className="text-white">
                         <FaCalendarAlt />
                     </span>
-                    <span className="text-white">{post.date}</span>
+                    <span className="text-white">{post?.date || post?.createdAt}</span>
                 </div>
             </div>
         </article>
