@@ -4,8 +4,10 @@ import Image from 'next/image';
 import React from 'react';
 import { Post } from '../page';
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-    const { slug } = await Promise.resolve(params);
+type tParams = Promise<{ slug: string[] }>;
+
+export default async function BlogPostPage(props: { params: tParams }) {
+    const { slug } = await props.params;
 
     const response = await fetchStrapiData('blogs', {
         filters: {
