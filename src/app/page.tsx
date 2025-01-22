@@ -91,11 +91,12 @@ const faq: { question: string; answer: string }[] = [
 
 export default function Home() {
     const [showFaQ, setShowFaQ] = useState<number>(0);
-    const [posts, setPosts] = useState<{ data: Post[] }>({ data: [] });
+    const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() => {
         const getPosts = async () => {
-            const posts = await fetchStrapiData('blogs', { populate: '*' });
+            const result = await fetchStrapiData('blogs', { populate: '*' });
+            const posts = result.data as Post[];
             setPosts(posts);
         };
         getPosts();
@@ -296,7 +297,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="grid lg:grid-cols-3 gap-6">
-                    {posts.data.map((post: Post) => (
+                    {posts.map((post: Post) => (
                         <BlogCard key={post.id} post={post} />
                     ))}
                 </div>
