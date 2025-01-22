@@ -27,7 +27,7 @@ export const BlogCard: React.FC<PostCardProps> = ({ post }) => {
                 <h3 className="text-xl font-semibold text-blog-color capitalize mb-4">
                     {post.title}
                 </h3>
-                <p className="text-[#2F2F2F] mb-4">{post.content}</p>
+                <p className="desc text-[#2F2F2F] mb-4">{post.content}</p>
                 <Link href={`/blog/${post.slug}`} className="text-[#3D4195]">
                     Read full
                 </Link>

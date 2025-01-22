@@ -95,7 +95,10 @@ export default function Home() {
 
     useEffect(() => {
         const getPosts = async () => {
-            const result = await fetchStrapiData('blogs', { populate: '*' });
+            const result = await fetchStrapiData('blogs', {
+                populate: '*',
+                'pagination[limit]': 3,
+            });
             const posts = result.data as Post[];
             setPosts(posts);
         };
