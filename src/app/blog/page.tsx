@@ -21,7 +21,11 @@ export interface Post {
 
 const BlogPage: React.FC = async () => {
     const result = await fetchStrapiData('blogs', { populate: '*' });
-    const posts = result.data as Post[];
+    const posts = result?.data as Post[];
+
+    if (!posts || posts?.length === 0) {
+        return <div>There is no post at this moment.</div>;
+    }
 
     return (
         <main className="px-10 md:px-32">
@@ -38,7 +42,7 @@ const BlogPage: React.FC = async () => {
                     <p>Get updates on latest news, health and lifestyle tips</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {posts.map((post: Post) => (
+                    {posts?.map((post: Post) => (
                         <BlogCard key={post.id} post={post} />
                     ))}
                 </div>
