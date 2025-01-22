@@ -23,10 +23,6 @@ const BlogPage: React.FC = async () => {
     const result = await fetchStrapiData('blogs', { populate: '*' });
     const posts = result?.data as Post[];
 
-    if (!posts || posts?.length === 0) {
-        return <div>There is no post at this moment.</div>;
-    }
-
     return (
         <main className="px-10 md:px-32">
             <PageBanner
