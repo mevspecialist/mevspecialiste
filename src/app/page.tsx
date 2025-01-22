@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { FaCheckCircle, FaArrowDown } from 'react-icons/fa';
 import Link from 'next/link';
@@ -8,6 +8,8 @@ import { DoctorCard } from '@/components/DoctorCard';
 import { BlogCard } from '@/components/BlogCard';
 import ServiceCard from '@/components/ServiceCard';
 import { AppointmentLink } from '@/components/AppointmentLink';
+import { Post } from './blog/page';
+import { fetchStrapiData } from '@/utils/strapi';
 
 const serviceOne: { title: string; image: string }[] = [
     { title: 'Operating Room', image: '/images/landingpage/why-choose-2.jpeg' },
@@ -87,27 +89,17 @@ const faq: { question: string; answer: string }[] = [
     },
 ];
 
-const blogPosts: { title: string; image: string; content: string }[] = [
-    {
-        title: ' Childhood Nutrition: Feeding Your Child For Optimal Development',
-        image: '/images/landingpage/blog-1.jpeg',
-        content:
-            'Your kids are growing fast, and what they eat matters! As parents, we can choose…',
-    },
-    {
-        title: 'Lifestyle Changes For Cancer Prevention: A Journey Towards Wellness',
-        image: '/images/landingpage/blog-2.jpeg',
-        content: 'Lifestyle Changes For Cancer Prevention: A Journey Towards Wellness',
-    },
-    {
-        title: 'The Diabetes Fight: How To Manage Your Blood Sugar Levels',
-        image: '/images/landingpage/blog-3.png',
-        content: 'The Diabetes Fight: How To Manage Your Blood Sugar Levels',
-    },
-];
-
 export default function Home() {
     const [showFaQ, setShowFaQ] = useState<number>(0);
+    const [posts, setPosts] = useState<{ data: Post[] }>({ data: [] });
+
+    useEffect(() => {
+        const getPosts = async () => {
+            const posts = await fetchStrapiData('blogs', { populate: '*' });
+            setPosts(posts);
+        };
+        getPosts();
+    }, []);
 
     return (
         <main className="px-10 md:px-32">
@@ -303,14 +295,9 @@ export default function Home() {
                         </Link>
                     </div>
                 </div>
-                <div className="grid lg:grid-cols-3 gap-4">
-                    {blogPosts.map((post, index) => (
-                        <BlogCard
-                            key={index}
-                            image={post.image}
-                            title={post.title}
-                            content={post.content}
-                        />
+                <div className="grid lg:grid-cols-3 gap-6">
+                    {posts.data.map((post: Post) => (
+                        <BlogCard key={post.id} post={post} />
                     ))}
                 </div>
             </section>

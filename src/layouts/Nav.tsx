@@ -10,6 +10,7 @@ const navigation: { name: string; href: string; hasSubmenu: boolean }[] = [
     { name: 'About Us', href: '/about-us', hasSubmenu: true },
     { name: 'Contact', href: '/contact', hasSubmenu: false },
     { name: 'Services', href: '/services', hasSubmenu: false },
+    { name: 'Blog', href: '/blog', hasSubmenu: false },
     { name: 'Career', href: '/career', hasSubmenu: false },
     { name: 'Facility Hub', href: '/facility-hub', hasSubmenu: false },
 ];
@@ -86,7 +87,7 @@ const Nav: React.FC = () => {
                         />
                     </Link>
                 </h1>
-                <nav className="hidden lg:flex items-center">
+                <nav className="hidden xl:flex items-center">
                     <ul className="flex justify-evenly gap-8 font-marcellus border-r-2 pr-6">
                         {navigation.map((nav) => (
                             <li key={nav.name} className="nav-list group">
@@ -112,7 +113,7 @@ const Nav: React.FC = () => {
                 {/* Mobile Navigation */}
                 <button
                     onClick={() => setShowMenu(!showMenu)}
-                    className="flex justify-center items-center absolute lg:hidden top-1/2 w-[30px] h-[20px] -translate-y-1/2 right-12 text-2xl text-white"
+                    className="flex justify-center items-center absolute xl:hidden top-1/2 w-[30px] h-[20px] -translate-y-1/2 right-12 text-2xl text-white"
                 >
                     {showMenu ? (
                         <FaTimes />
@@ -121,7 +122,7 @@ const Nav: React.FC = () => {
                     )}
                 </button>
                 {showMenu && (
-                    <nav className="navigation px-12 md:px-20 pb-10 pt-4 w-full lg:hidden absolute left-0 top-full rounded-b-[6rem]">
+                    <nav className="navigation px-12 md:px-20 pb-10 pt-4 w-full xl:hidden absolute left-0 top-full rounded-b-[6rem]">
                         <ul>
                             {navigation.map((nav) => (
                                 <li key={nav.name} className="mb-6 font-marcellus">

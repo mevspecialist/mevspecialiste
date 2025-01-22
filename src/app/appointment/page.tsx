@@ -147,7 +147,7 @@ const AppointmentPage: React.FC = () => {
                             </p>
                         </div>
                         <div className="form-wrapper gap-4">
-                            <label htmlFor="subject">Subject:</label>
+                            <label htmlFor="subject">Specialist:</label>
                             <input
                                 type="text"
                                 id="subject"
@@ -158,7 +158,7 @@ const AppointmentPage: React.FC = () => {
                             />
                         </div>
                         <div className="form-wrapper gap-4">
-                            <label htmlFor="comment">Comment/Questions:</label>
+                            <label htmlFor="comment">Reasons for appointment:</label>
                             <textarea
                                 id="comment"
                                 name="comment"
