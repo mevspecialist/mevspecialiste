@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Post } from '../page';
 
-type tParams = Promise<{ slug: string[] }>;
+type tParams = Promise<{ slug: string[] }>; // this is the allowed way to use the params here
 
 export default async function BlogPostPage(props: { params: tParams }) {
     const { slug } = await props.params;
