@@ -41,7 +41,7 @@ const BlogPage: React.FC = async () => {
                     {posts ? (
                         posts?.map((post: Post) => <BlogCard key={post.id} post={post} />)
                     ) : (
-                        <div>No posts found. Check back later.</div>
+                        <p>No posts found. Check back later.</p>
                     )}
                 </div>
             </section>
