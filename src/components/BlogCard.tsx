@@ -9,7 +9,7 @@ interface PostCardProps {
 }
 
 export const BlogCard: React.FC<PostCardProps> = ({ post }) => {
-    const imageUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL + post.image.url;
+    const imageUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL + post?.image.url;
 
     return (
         <article className="py-4 relative">
@@ -27,8 +27,8 @@ export const BlogCard: React.FC<PostCardProps> = ({ post }) => {
                 <h3 className="text-xl font-semibold text-blog-color capitalize mb-4">
                     {post.title}
                 </h3>
-                <p className="desc text-[#2F2F2F] mb-4">{post.content}</p>
-                <Link href={`/blog/${post.slug}`} className="text-[#3D4195]">
+                <p className="desc text-[#2F2F2F] mb-4">{post?.content}</p>
+                <Link href={`/blog/${post?.slug}`} className="text-[#3D4195]">
                     Read full
                 </Link>
             </div>
@@ -37,7 +37,9 @@ export const BlogCard: React.FC<PostCardProps> = ({ post }) => {
                     <span className="text-white">
                         <FaCalendarAlt />
                     </span>
-                    <span className="text-white">{post?.date || post?.createdAt}</span>
+                    <span className="text-white">
+                        {post?.date || new Date(post?.createdAt).toLocaleDateString()}
+                    </span>
                 </div>
             </div>
         </article>

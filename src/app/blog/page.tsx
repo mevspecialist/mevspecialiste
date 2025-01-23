@@ -38,9 +38,11 @@ const BlogPage: React.FC = async () => {
                     <p>Get updates on latest news, health and lifestyle tips</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {posts?.map((post: Post) => (
-                        <BlogCard key={post.id} post={post} />
-                    ))}
+                    {posts ? (
+                        posts?.map((post: Post) => <BlogCard key={post.id} post={post} />)
+                    ) : (
+                        <div>No posts found. Check back later.</div>
+                    )}
                 </div>
             </section>
         </main>

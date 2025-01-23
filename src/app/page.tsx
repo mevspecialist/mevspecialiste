@@ -300,9 +300,11 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="grid lg:grid-cols-3 gap-6">
-                    {posts?.map((post: Post) => (
-                        <BlogCard key={post.id} post={post} />
-                    ))}
+                    {posts && posts?.length > 0 ? (
+                        posts?.map((post: Post) => <BlogCard key={post.id} post={post} />)
+                    ) : (
+                        <div>No posts found. Check back later.</div>
+                    )}
                 </div>
             </section>
             {/* FAQ */}
