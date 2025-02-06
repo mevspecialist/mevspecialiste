@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
                 hostname: 'localhost',
             },
             {
-                hostname: 'your-strapi-domain.com',
+                hostname: 'mevspecialist-cms.onrender.com',
             },
             {
                 hostname: 'res.cloudinary.com',
