@@ -9,7 +9,8 @@ interface PostCardProps {
 }
 
 export const BlogCard: React.FC<PostCardProps> = ({ post }) => {
-    const imageUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL + post?.image.url;
+    // const imageUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL + post?.image.url;
+    const imageUrl = post?.image?.url;
 
     return (
         <article className="py-4 relative">

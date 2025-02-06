@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
             {
                 hostname: 'your-strapi-domain.com',
             },
+            {
+                hostname: 'res.cloudinary.com',
+            },
         ],
     },
 };
