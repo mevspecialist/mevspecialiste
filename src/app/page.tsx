@@ -10,6 +10,7 @@ import ServiceCard from '@/components/ServiceCard';
 import { AppointmentLink } from '@/components/AppointmentLink';
 import { Post } from './blog/page';
 import { fetchStrapiData } from '@/utils/strapi';
+import { doctors } from './doctors/page';
 
 const serviceOne: { title: string; image: string }[] = [
     { title: 'Operating Room', image: '/images/landingpage/why-choose-2.jpeg' },
@@ -48,29 +49,6 @@ const mainServices: { title: string; content: string }[] = [
         title: 'Physiotherapy',
         content:
             'Personalized therapy sessions to restore movement, improve strength, and enhance overall physical well-being.',
-    },
-];
-
-const doctors: { name: string; image: string; title: string }[] = [
-    {
-        name: 'Dr. Innocent Onu',
-        title: 'Trauma & Orthopedics',
-        image: '/images/landingpage/doctor-1.jpeg',
-    },
-    {
-        name: 'Dr. Brian Egwa',
-        title: 'Medical Officer',
-        image: '/images/landingpage/doctor-2.jpeg',
-    },
-    {
-        name: 'Dr. Teniola Edgal',
-        title: 'Clinical Psychologist',
-        image: '/images/landingpage/doctor-3.jpeg',
-    },
-    {
-        name: 'Dr. Isabella Abo',
-        title: 'Medical Officer',
-        image: '/images/landingpage/doctor-5.jpeg',
     },
 ];
 
@@ -133,8 +111,8 @@ export default function Home() {
                                 <header className="mb-4">Core Services</header>
                                 <ul className="font-light text-sm">
                                     <li>Patient Safety</li>
-                                    <li>Service Excellence</li>
-                                    <li>Service Excellence</li>
+                                    <li>Patient Satisfaction</li>
+                                    <li>Open Communication</li>
                                 </ul>
                             </div>
                             <Image
@@ -268,8 +246,8 @@ export default function Home() {
                     <h2 className="text-2xl font-semibold py-4">Meet Our Medical Specialists</h2>
                     <p>Our Doctors are well trained, licensed and experienced</p>
                 </div>
-                <div className="py-10 flex flex-col lg:flex-row gap-4">
-                    {doctors.map((doctor, index) => (
+                <div className="py-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {doctors.slice(0, 3).map((doctor, index) => (
                         <DoctorCard
                             key={index}
                             name={doctor.name}

@@ -2,26 +2,36 @@ import React from 'react';
 import { PageBanner } from '@/components/PageBanner';
 import { DoctorCard } from '@/components/DoctorCard';
 
-const doctors: { name: string; image: string; title: string }[] = [
+export const doctors: { name: string; image: string; title: string }[] = [
     {
-        name: 'Dr. Innocent Onu',
-        title: 'Trauma & Orthopedics',
+        name: 'Dr. Omolara Olagunju',
+        title: 'Family Physician (MBBS, FWACP, FM)',
+        image: '/images/doctors/doctor-5.jpeg',
+    },
+    {
+        name: 'Dr. Ayorinde Davis Olusanya',
+        title: 'Medical Officer (MBBS)',
         image: '/images/landingpage/doctor-1.jpeg',
     },
     {
-        name: 'Dr. Brian Egwa',
-        title: 'Medical Officer',
-        image: '/images/landingpage/doctor-2.jpeg',
+        name: 'Dr. Rhoda Elendu',
+        title: 'Medical Officer (MBBS)',
+        image: '/images/doctors/doctor-3.jpg',
     },
     {
-        name: 'Dr. Teniola Edgal',
-        title: 'Clinical Psychologist',
-        image: '/images/landingpage/doctor-3.jpeg',
+        name: 'Dr. Anita Omoruyi',
+        title: 'Medical Officer (MBBS)',
+        image: '/images/doctors/doctor-1.jpg',
     },
     {
-        name: 'Dr. Isabella Abo',
-        title: 'Medical Officer',
-        image: '/images/landingpage/doctor-5.jpeg',
+        name: 'Dr. Agbo Ene Joy',
+        title: 'Medical Officer (MBBS)',
+        image: '/images/doctors/doctor-4.jpg',
+    },
+    {
+        name: 'Dr. Ibe Jane',
+        title: 'Medical Officer (MBBS)',
+        image: '/images/doctors/doctor-2.jpg',
     },
 ];
 
@@ -35,15 +45,13 @@ const Doctors: React.FC = () => {
             />
             <section className="py-20">
                 <div className="text-center lg:text-left">
-                    <header className="header-star font-marcellus uppercase">
-                        Our team
-                    </header>
-                    <h2 className="text-2xl font-semibold py-4 lg:text-inherit ">Meet Our Medical Specialists</h2>
-                    <p>
-                        Our Doctors are well trained, licensed and experienced
-                    </p>
+                    <header className="header-star font-marcellus uppercase">Our team</header>
+                    <h2 className="text-2xl font-semibold py-4 lg:text-inherit ">
+                        Meet Our Medical Specialists
+                    </h2>
+                    <p>Our Doctors are well trained, licensed and experienced</p>
                 </div>
-                <div className="py-10 flex flex-col lg:flex-row gap-4">
+                <div className="py-10 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {doctors.map((doctor, index) => (
                         <DoctorCard
                             key={index}

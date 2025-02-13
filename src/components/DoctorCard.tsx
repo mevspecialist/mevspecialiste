@@ -16,7 +16,7 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ name, title, image }) =>
                 width={100}
                 height={100}
                 quality={100}
-                className="w-full h-full rounded-xl object-cover"
+                className="w-full h-80 rounded-xl object-fill"
             />
             <figcaption className="text-center py-4">
                 <h4 className="text-xl mb-2">{name}</h4>
