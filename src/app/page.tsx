@@ -10,7 +10,7 @@ import ServiceCard from '@/components/ServiceCard';
 import { AppointmentLink } from '@/components/AppointmentLink';
 import { Post } from './blog/page';
 import { fetchStrapiData } from '@/utils/strapi';
-import { doctors } from './doctors/page';
+import { doctors } from '../../team';
 
 const serviceOne: { title: string; image: string }[] = [
     { title: 'Operating Room', image: '/images/landingpage/why-choose-2.jpeg' },
