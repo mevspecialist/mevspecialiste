@@ -35,7 +35,7 @@ export const doctors: { name: string; image: string; title: string }[] = [
     },
 ];
 
-const Doctors: React.FC = () => {
+const DoctorsPage: React.FC = () => {
     return (
         <main className="px-10 md:px-32">
             <PageBanner
@@ -66,4 +66,4 @@ const Doctors: React.FC = () => {
     );
 };
 
-export default Doctors;
+export default DoctorsPage;
