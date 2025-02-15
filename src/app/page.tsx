@@ -156,7 +156,7 @@ export default function Home() {
                 <div className="mt-6 relative">
                     <Image
                         src={'/images/banner-card-image.jpeg'}
-                        width={100}
+                        width={200}
                         height={200}
                         alt="family of father, mother and child"
                         className="w-full h-full rounded-3xl object-cover"
@@ -326,8 +326,8 @@ export default function Home() {
                 </div>
                 <Image
                     src={'/images/landingpage/faq.jpeg'}
-                    width={100}
-                    height={100}
+                    width={200}
+                    height={200}
                     alt={''}
                     quality={100}
                     className="w-full h-full lg:w-[45%] lg:h-[500px] rounded-3xl"
