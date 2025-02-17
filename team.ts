@@ -5,9 +5,9 @@ export const doctors: { name: string; image: string; title: string }[] = [
         image: '/images/doctors/doctor-5.jpeg',
     },
     {
-        name: 'Dr. Ayorinde Davis Olusanya',
+        name: 'Dr. Anita Omoruyi',
         title: 'Medical Officer (MBBS)',
-        image: '',
+        image: '/images/doctors/doctor-7.jpg',
     },
     {
         name: 'Dr. Rhoda Elendu',
@@ -15,9 +15,9 @@ export const doctors: { name: string; image: string; title: string }[] = [
         image: '/images/doctors/doctor-3.jpg',
     },
     {
-        name: 'Dr. Anita Omoruyi',
+        name: 'Dr. Ayorinde Davis Olusanya',
         title: 'Medical Officer (MBBS)',
-        image: '/images/doctors/doctor-7.jpg',
+        image: '',
     },
     {
         name: 'Dr. Agbo Ene Joy',

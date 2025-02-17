@@ -239,12 +239,22 @@ export default function Home() {
             <Contact />
             {/* Team Doctors */}
             <section className="py-20">
-                <header className="header-star font-marcellus uppercase text-center lg:text-left">
-                    our team
-                </header>
-                <div className="text-center lg:text-left">
-                    <h2 className="text-2xl font-semibold py-4">Meet Our Medical Specialists</h2>
-                    <p>Our Doctors are well trained, licensed and experienced</p>
+                <div>
+                    <header className="header-star font-marcellus uppercase text-center lg:text-left">
+                        our team
+                    </header>
+                    <div className="text-center lg:text-left">
+                        <h2 className="text-2xl font-semibold py-4">
+                            Meet Our Medical Specialists
+                        </h2>
+                        <p>Our Doctors are well trained, licensed and experienced</p>
+                    </div>
+                    <Link
+                        href={'/doctors'}
+                        className="bg-btn-color text-white px-8 py-3 rounded-full font-light"
+                    >
+                        View More
+                    </Link>
                 </div>
                 <div className="py-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {doctors.slice(0, 3).map((doctor, index) => (

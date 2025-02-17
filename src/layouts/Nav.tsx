@@ -40,6 +40,15 @@ const Nav: React.FC = () => {
     const [showStickyNav, setShowStickyNav] = useState<boolean>(true);
     const [lastScrollY, setLastScrollY] = useState<number>(0);
 
+    // To keep track of the currently clicked nav link
+    const [recent, setRecent] = useState<string | null>(null);
+
+    // Because nestjs run server side, the window is not available so I used usedEffect until it is available in the browswer
+    useEffect(() => {
+        const storedKey = window.localStorage.getItem('key');
+        setRecent(storedKey);
+    }, []);
+
     // close the menu when clicked outside of it
     useCloseElementOnClick({ ref, onClickOutside: () => setShowMenu(false) });
 
@@ -63,6 +72,14 @@ const Nav: React.FC = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, [lastScrollY]);
+
+    // Handle link click
+    const handleLinkClick = (name: string) => {
+        if (typeof window !== 'undefined') {
+            window.localStorage.setItem('key', name); // Update localStorage
+            setRecent(name); // Update state to trigger re-render
+        }
+    };
 
     return (
         <header
@@ -91,7 +108,13 @@ const Nav: React.FC = () => {
                     <ul className="flex justify-evenly gap-8 font-marcellus border-r-2 pr-6">
                         {navigation.map((nav) => (
                             <li key={nav.name} className="nav-list group">
-                                <Link href={nav.href} className="uppercase">
+                                <Link
+                                    href={nav.href}
+                                    onClick={() => handleLinkClick(nav.name)}
+                                    className={`uppercase relative ${
+                                        nav.name === (recent ?? 'Home') ? 'current' : ''
+                                    }`}
+                                >
                                     <span>{nav.name}</span>
                                 </Link>
 
