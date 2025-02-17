@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { FaCheckCircle, FaArrowDown } from 'react-icons/fa';
+import { FaCheckCircle, FaArrowDown, FaArrowRight } from 'react-icons/fa';
 import Link from 'next/link';
 import { Contact } from '@/components/Contact';
 import { DoctorCard } from '@/components/DoctorCard';
@@ -13,8 +13,8 @@ import { fetchStrapiData } from '@/utils/strapi';
 import { doctors } from '../../team';
 
 const serviceOne: { title: string; image: string }[] = [
-    { title: 'Operating Room', image: '/images/landingpage/why-choose-2.jpeg' },
-    { title: 'Reception', image: '/images/landingpage/why-choose-3.jpeg' },
+    { title: 'Operating Room', image: '/images/facilityhub/facility-5.jpg' },
+    { title: 'Reception', image: '/images/landingpage/reception-banner.jpeg' },
     { title: 'Inpatient Care', image: '/images/landingpage/why-choose-4.jpeg' },
     { title: 'View More', image: '' },
 ];
@@ -118,7 +118,7 @@ export default function Home() {
                             <Image
                                 width={200}
                                 height={200}
-                                src="/images/banner-card-image.jpeg"
+                                src="/images/facilityhub/facility-2.jpeg"
                                 alt="Logo"
                                 className="order-1 w-full rounded-t-xl"
                             />
@@ -155,11 +155,11 @@ export default function Home() {
                 </div>
                 <div className="mt-6 relative">
                     <Image
-                        src={'/images/banner-card-image.jpeg'}
+                        src={'/images/landingpage/excellentcare.jpg'}
                         width={200}
                         height={200}
                         alt="family of father, mother and child"
-                        className="w-full h-full rounded-3xl object-cover"
+                        className="w-full h-[500px] rounded-3xl object-cover"
                         quality={100}
                     />
                     <span className="absolute -right-8 w-48 -top-10 text-[8px] leading-3 py-6 px-10 lg:top-10 lg:w-2/3 lg:-left-28 text-[#3D4195] lg:text-[14px] lg:leading-[19.5px] bg-white lg:px-6 lg:py-10 border-[1px] border-btn-color rounded-full font-marcellus">
@@ -194,8 +194,14 @@ export default function Home() {
                                 }}
                             >
                                 {index === serviceOne.length - 1 ? (
-                                    <Link href="/services" className="relative z-10">
+                                    <Link
+                                        href="/facility-hub"
+                                        className="relative z-10 flex items-center group"
+                                    >
                                         {service.title}
+                                        <span className="text-lg ml-2 transform transition-transform duration-300 group-hover:translate-x-2">
+                                            <FaArrowRight />
+                                        </span>
                                     </Link>
                                 ) : (
                                     <span className="relative z-10">{service.title}</span>
@@ -239,22 +245,26 @@ export default function Home() {
             <Contact />
             {/* Team Doctors */}
             <section className="py-20">
-                <div>
-                    <header className="header-star font-marcellus uppercase text-center lg:text-left">
-                        our team
-                    </header>
-                    <div className="text-center lg:text-left">
-                        <h2 className="text-2xl font-semibold py-4">
-                            Meet Our Medical Specialists
-                        </h2>
-                        <p>Our Doctors are well trained, licensed and experienced</p>
+                <div className="flex flex-col justify-between gap-8 lg:flex-row">
+                    <div>
+                        <header className="header-star font-marcellus uppercase text-center lg:text-left">
+                            our team
+                        </header>
+                        <div className="text-center lg:text-left">
+                            <h2 className="text-2xl font-semibold py-4">
+                                Meet Our Medical Specialists
+                            </h2>
+                            <p>Our Doctors are well trained, licensed and experienced</p>
+                        </div>
                     </div>
-                    <Link
-                        href={'/doctors'}
-                        className="bg-btn-color text-white px-8 py-3 rounded-full font-light"
-                    >
-                        View More
-                    </Link>
+                    <div className="mx-auto lg:mx-0">
+                        <Link
+                            href={'/doctors'}
+                            className="bg-btn-color w-max text-center text-white px-8 py-3 rounded-full font-light"
+                        >
+                            View More
+                        </Link>
+                    </div>
                 </div>
                 <div className="py-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {doctors.slice(0, 3).map((doctor, index) => (

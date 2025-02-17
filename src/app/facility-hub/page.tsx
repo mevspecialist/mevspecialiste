@@ -7,7 +7,7 @@ const facilities: { title: string; content: string; image: string }[] = [
         title: 'Operating Room',
         content:
             'Our state-of-the-art operating room is equipped with the latest medical technology and staffed by skilled surgeons and healthcare professionals. It’s a place where precision meets care, ensuring that patients receive the best surgical treatment available.',
-        image: '/images/facilityhub/facility-1.jpeg',
+        image: '/images/facilityhub/facility-5.jpg',
     },
     {
         title: 'Reception',

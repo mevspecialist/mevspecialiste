@@ -16,7 +16,7 @@ const Button: React.FC<ButtonProps> = ({
         <button
             onClick={onClick}
             disabled={disabled}
-            className="bg-btn-color text-white px-8 py-3 rounded-full font-light"
+            className="bg-btn-color text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-85"
         >
             {label}
         </button>

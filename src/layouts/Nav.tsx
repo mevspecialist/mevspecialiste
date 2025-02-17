@@ -4,6 +4,7 @@ import { FaPhoneAlt, FaEnvelope, FaTimes } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCloseElementOnClick } from '@/utils/useClickOutside';
+import { usePathname } from 'next/navigation'; //
 
 const navigation: { name: string; href: string; hasSubmenu: boolean }[] = [
     { name: 'Home', href: '/', hasSubmenu: false },
@@ -40,14 +41,30 @@ const Nav: React.FC = () => {
     const [showStickyNav, setShowStickyNav] = useState<boolean>(true);
     const [lastScrollY, setLastScrollY] = useState<number>(0);
 
+    const pathname = usePathname(); // Get current route
+
     // To keep track of the currently clicked nav link
     const [recent, setRecent] = useState<string | null>(null);
 
-    // Because nestjs run server side, the window is not available so I used usedEffect until it is available in the browswer
+    // Effect to handle route changes including back/forward navigation
     useEffect(() => {
-        const storedKey = window.localStorage.getItem('key');
-        setRecent(storedKey);
-    }, []);
+        const handleRouteChange = () => {
+            const path = window.location.pathname;
+            const activeNav = navigation.find((nav) => nav.href === path)?.name || 'Home';
+            setRecent(activeNav);
+            window.localStorage.setItem('key', activeNav);
+        };
+
+        // Initialize the active link on first render
+        handleRouteChange();
+
+        // Listen to Next.js route changes
+        window.addEventListener('popstate', handleRouteChange);
+
+        return () => {
+            window.removeEventListener('popstate', handleRouteChange);
+        };
+    }, [pathname]);
 
     // close the menu when clicked outside of it
     useCloseElementOnClick({ ref, onClickOutside: () => setShowMenu(false) });
@@ -154,6 +171,11 @@ const Nav: React.FC = () => {
                                     </Link>
                                 </li>
                             ))}
+                            <li className="mb-6 font-marcellus">
+                                <Link href="/doctors" className="uppercase">
+                                    <span>doctors</span>
+                                </Link>
+                            </li>
                         </ul>
                         <ContactIcon />
                     </nav>

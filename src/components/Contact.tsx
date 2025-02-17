@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Button from './Button';
 import { FaPhoneAlt, FaMapMarker, FaWhatsapp, FaClock, FaEnvelope } from 'react-icons/fa';
 import { Notification, NotificationType } from './Notification';
+import Link from 'next/link';
 
 export enum LoadingStatus {
     idle,
@@ -110,7 +111,16 @@ export const Contact: React.FC = () => {
                             </div>
                             <div className="relative -top-3">
                                 <h3>{contact.title}</h3>
-                                <p>{contact.content}</p>
+                                {contact.content === 'care@mevspecialisthospital.com' ? (
+                                    <Link
+                                        href="mailto:mevspecialist4@gmail.com"
+                                        className="text-pry-text-color-2"
+                                    >
+                                        {contact.content}
+                                    </Link>
+                                ) : (
+                                    <p>{contact.content}</p>
+                                )}
                             </div>
                         </div>
                     ))}

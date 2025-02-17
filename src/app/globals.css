@@ -161,11 +161,11 @@ section.service > div:first-child::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #00000066;
+    background-color: #00000089;
 }
 
 section.service > div:first-child {
-    background-image: url('/images/landingpage/why-choose-image.jpeg');
+    background-image: url('/images/landingpage/black-doctor-banner.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
